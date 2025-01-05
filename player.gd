@@ -188,6 +188,10 @@ var rollTap
 var downTap
 var twirlTap
 
+@onready var camera_2d: Camera2D = $Camera2D
+@onready var animation_player: AnimationPlayer = $Camera2D/AnimationPlayer
+
+
 func _ready():
 	dead_light.visible = false
 	print("Player groups at start: ", get_groups())
@@ -723,6 +727,7 @@ func die_fire():
 		#set_physics_process(false)
 		set_process_input(false)
 		anim.play("die")
+		animation_player.play("dead_zoom")
 	var tree = get_tree()
 	await tree.create_timer(4.0).timeout
 	if tree and is_instance_valid(self):
@@ -732,6 +737,7 @@ func die_spikes():
 	die_spikes_sfx.play()
 	dead_light.visible = true
 	if !is_dead:
+		animation_player.play("dead_zoom")
 		velocity.x = 0
 		velocity.y = -100
 		is_dead = true
