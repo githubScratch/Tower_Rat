@@ -1,27 +1,24 @@
 # FireHazard.gd
 extends Area2D
 
-@export var descent_speed: float = 35.0  # Pixels per second
+@export var descent_speed: float = 75.0  # Pixels per second
 @export var damage_amount: int = 1
 var light_data = []
 
 
 
 func _ready():
-
-	for node in get_tree().get_nodes_in_group("boom1"):
-		node.play("boom")
-	await get_tree().create_timer(1.75).timeout
-	for node in get_tree().get_nodes_in_group("boom2"):
-		node.play("boom")
-	await get_tree().create_timer(1.0).timeout
-	for node in get_tree().get_nodes_in_group("boom3"):
-		node.play("boom")
-	await get_tree().create_timer(1.5).timeout
-	for node in get_tree().get_nodes_in_group("boom4"):
-		node.play("boom")
-
-
+	#for node in get_tree().get_nodes_in_group("boom1"):
+		#node.play("boom")
+	#await get_tree().create_timer(1.75).timeout
+	#for node in get_tree().get_nodes_in_group("boom2"):
+		#node.play("boom")
+	#await get_tree().create_timer(1.0).timeout
+	#for node in get_tree().get_nodes_in_group("boom3"):
+		#node.play("boom")
+	#await get_tree().create_timer(1.5).timeout
+	#for node in get_tree().get_nodes_in_group("boom4"):
+		#node.play("boom")
 	#print("Fire hazard ready. Monitoring: ", monitoring)
 	for light in get_children():
 		if light is PointLight2D:
@@ -46,6 +43,8 @@ func _ready():
 	#visual.position = Vector2(-500, -25)  # Center the rectangle
 	#add_child(visual)
 
+	await get_tree().create_timer(25).timeout
+	descent_speed += 20
 
 func _physics_process(delta):
 	# Move the fire hazard downward
