@@ -1,4 +1,8 @@
 extends Node2D
+@onready var flask_falls: AnimationPlayer = $Flask/FlaskFalls
+
+func _ready():
+	flask_falls.play("fall")
 
 func _on_spikes_body_entered(body: Node2D) -> void:
 	print("Collision detected with: ", body.name)

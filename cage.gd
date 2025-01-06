@@ -10,6 +10,6 @@ func _integrate_forces(state):
 
 
 func _on_timer_timeout() -> void:
-	var wind_force = Vector2(randf() * 1750 - 500, 0)  # Random horizontal force.
+	var wind_force = Vector2(randf() * 3750 - 2500, 0)  # Random horizontal force.
 	apply_impulse(Vector2.ZERO, wind_force)
-	apply_torque_impulse(randf() * 5 - 2.5)  # Add slight rotation.
+	apply_torque_impulse(randf() * 50 - 25.5)  # Add slight rotation.

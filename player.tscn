@@ -11,7 +11,7 @@
 [ext_resource type="AudioStream" uid="uid://dvt2liesdq7fd" path="res://sfx/Retro Swooosh Jump.wav" id="9_hsguv"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_uyv0p"]
-size = Vector2(6, 8)
+size = Vector2(7, 8)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_kgc7s"]
 atlas = ExtResource("2_nf01l")
@@ -703,7 +703,8 @@ _data = {
 }
 
 [node name="Player" type="CharacterBody2D" node_paths=PackedStringArray("PlayerSprite", "PlayerCollider") groups=["player"]]
-collision_mask = 7
+collision_layer = 13
+collision_mask = 15
 floor_constant_speed = true
 floor_max_angle = 1.0472
 floor_snap_length = 10.0
@@ -731,7 +732,7 @@ slide = true
 falling = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(0, -4)
+position = Vector2(-0.5, -4)
 shape = SubResource("RectangleShape2D_uyv0p")
 
 [node name="SpriteHolder" type="Node2D" parent="."]

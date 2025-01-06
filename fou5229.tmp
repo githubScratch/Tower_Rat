@@ -8,7 +8,7 @@
 [ext_resource type="PackedScene" uid="uid://dri44ivdp0iu5" path="res://Fire.tscn" id="4_bft5d"]
 [ext_resource type="PackedScene" uid="uid://dsy7t7ginhl5k" path="res://hanging_cage.tscn" id="4_frgw5"]
 [ext_resource type="Texture2D" uid="uid://bkn2do7ckocud" path="res://sprites/other_and_decorative.png" id="5_st1sw"]
-[ext_resource type="Texture2D" uid="uid://cu2vqi0hmlbwq" path="res://vfx/75.png" id="9_qpbr8"]
+[ext_resource type="Texture2D" uid="uid://bnrcf4haosun7" path="res://vfx/magic_particles_9.png" id="9_0cr41"]
 
 [sub_resource type="Environment" id="Environment_s31mn"]
 background_mode = 3
@@ -1764,7 +1764,7 @@ size = Vector2(7, 6)
 
 [sub_resource type="Animation" id="Animation_ulujn"]
 resource_name = "fall"
-length = 3.0
+length = 2.0
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -1772,10 +1772,10 @@ tracks/0/path = NodePath(".:rotation")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0.0666666, 1.2, 1.98333),
-"transitions": PackedFloat32Array(1, 1, 1.62451),
+"times": PackedFloat32Array(0, 1.03333),
+"transitions": PackedFloat32Array(1, 1.62451),
 "update": 0,
-"values": [0.0, 0.0, -9.42478]
+"values": [0.0, -12.5664]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
@@ -1784,10 +1784,10 @@ tracks/1/path = NodePath(".:position")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
-"times": PackedFloat32Array(0.0333333, 0.733333, 0.866667, 1.2, 1.98333),
-"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"times": PackedFloat32Array(-0.0333333, 1.03333),
+"transitions": PackedFloat32Array(1, 1),
 "update": 0,
-"values": [Vector2(217, -52), Vector2(217, -52), Vector2(215, -55), Vector2(210, -52), Vector2(208, -15)]
+"values": [Vector2(217, -52), Vector2(208, -15)]
 }
 tracks/2/type = "value"
 tracks/2/imported = false
@@ -1796,10 +1796,10 @@ tracks/2/path = NodePath("GPUParticles2D:emitting")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
-"times": PackedFloat32Array(0.0333333, 1.98333, 2.9),
-"transitions": PackedFloat32Array(1, 1, 1),
+"times": PackedFloat32Array(1.03333),
+"transitions": PackedFloat32Array(1),
 "update": 1,
-"values": [false, true, false]
+"values": [true]
 }
 tracks/3/type = "value"
 tracks/3/imported = false
@@ -1808,22 +1808,10 @@ tracks/3/path = NodePath("Sprite2D:visible")
 tracks/3/interp = 1
 tracks/3/loop_wrap = true
 tracks/3/keys = {
-"times": PackedFloat32Array(0.0999999, 1.98333),
+"times": PackedFloat32Array(0.0333333, 1.03333),
 "transitions": PackedFloat32Array(1, 2.21914),
 "update": 1,
 "values": [true, false]
-}
-tracks/4/type = "value"
-tracks/4/imported = false
-tracks/4/enabled = true
-tracks/4/path = NodePath("CollisionShape2D:disabled")
-tracks/4/interp = 1
-tracks/4/loop_wrap = true
-tracks/4/keys = {
-"times": PackedFloat32Array(0.0666667, 1.96667),
-"transitions": PackedFloat32Array(1, 1),
-"update": 1,
-"values": [false, true]
 }
 
 [sub_resource type="Animation" id="Animation_jorp7"]
@@ -1862,7 +1850,7 @@ tracks/2/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 1,
-"values": [false]
+"values": [true]
 }
 tracks/3/type = "value"
 tracks/3/imported = false
@@ -1876,18 +1864,6 @@ tracks/3/keys = {
 "update": 1,
 "values": [true]
 }
-tracks/4/type = "value"
-tracks/4/imported = false
-tracks/4/enabled = true
-tracks/4/path = NodePath("CollisionShape2D:disabled")
-tracks/4/interp = 1
-tracks/4/loop_wrap = true
-tracks/4/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [false]
-}
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_xbk37"]
 _data = {
@@ -1896,16 +1872,13 @@ _data = {
 }
 
 [sub_resource type="Gradient" id="Gradient_fw84e"]
-offsets = PackedFloat32Array(0, 0.172131, 0.622951, 1)
-colors = PackedColorArray(0.50556, 0.287, 0.613123, 1, 0.941278, 0.36701, 0.632413, 0.874446, 0.323688, 0.489588, 0.890275, 0.832535, 0.981333, 0.93, 1, 0.756863)
+colors = PackedColorArray(1, 1, 1, 1, 0.981333, 0.93, 1, 0.756863)
 
 [sub_resource type="GradientTexture1D" id="GradientTexture1D_2al6g"]
 gradient = SubResource("Gradient_fw84e")
 
 [sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_gvvia"]
 particle_flag_disable_z = true
-emission_shape = 1
-emission_sphere_radius = 5.0
 angle_min = -201.3
 angle_max = 123.9
 spread = 171.886
@@ -1913,11 +1886,10 @@ initial_velocity_max = 26.88
 orbit_velocity_min = -0.129
 orbit_velocity_max = 0.108
 gravity = Vector3(0, -200, 0)
-scale_min = 0.2
-color = Color(0.5985, 0.2604, 0.84, 1)
+scale_min = 0.05
+scale_max = 0.15
+color = Color(0.743135, 0.563021, 0.875787, 1)
 color_ramp = SubResource("GradientTexture1D_2al6g")
-hue_variation_min = -0.01
-hue_variation_max = 0.03
 collision_mode = 1
 collision_friction = 0.0
 collision_bounce = 0.51
@@ -1942,6 +1914,30 @@ environment = SubResource("Environment_s31mn")
 
 [node name="Player" parent="." instance=ExtResource("1_fv77l")]
 position = Vector2(234, -57)
+README = "IMPORTANT: MAKE SURE TO ASSIGN 'left' 'right' 'jump' 'dash' 'up' 'down' 'roll' 'latch' 'twirl' 'run' in the project settings input map. Usage tips. 1. Hover over each toggle and variable to read what it does and to make sure nothing bugs. 2. Animations are very primitive. To make full use of your custom art, you may want to slightly change the code for the animations"
+maxSpeed = 200.0
+timeToReachMaxSpeed = 0.2
+directionalSnap = false
+shortHopAkaVariableJumpHeight = true
+coyoteTime = 0.2
+jumpBuffering = 0.2
+inputPauseAfterWallJump = 0.1
+wallKickAngle = 60.0
+wallLatching = false
+wallLatchingModifer = false
+dashes = 1
+dashCancel = true
+cornerCutting = false
+correctionAmount = 1.5
+crouch = false
+canRoll = false
+rollLength = 2.0
+upToCancel = false
+walk = false
+latch = false
+crouch_idle = false
+crouch_walk = false
+roll = false
 
 [node name="Cages" type="Node2D" parent="."]
 position = Vector2(264, -49)
@@ -2128,16 +2124,13 @@ libraries = {
 "": SubResource("AnimationLibrary_xbk37")
 }
 autoplay = "fall"
-speed_scale = 1.5
 
 [node name="GPUParticles2D" type="GPUParticles2D" parent="Flask"]
-modulate = Color(1, 1, 1, 0.388235)
-emitting = false
 amount = 2000
 process_material = SubResource("ParticleProcessMaterial_gvvia")
-texture = ExtResource("9_qpbr8")
+texture = ExtResource("9_0cr41")
 lifetime = 2.0
 one_shot = true
-explosiveness = 0.5
+explosiveness = 0.73
 
 [connection signal="body_entered" from="Spikes" to="." method="_on_spikes_body_entered"]
