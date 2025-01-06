@@ -1,7 +1,7 @@
 # FireHazard.gd
 extends Area2D
 
-@export var descent_speed: float = 50.0  # Pixels per second
+@export var descent_speed: float = 65.0  # Pixels per second
 @export var damage_amount: int = 1
 var light_data = []
 
@@ -45,20 +45,12 @@ func _ready():
 	#visual.size = Vector2(1500, 10)  # Match collision shape size
 	#visual.position = Vector2(-500, -25)  # Center the rectangle
 	#add_child(visual)
-	
-	# Connect the body entered signal
-	#body_entered.connect(_on_body_entered)
-	#area_entered.connect(_on_area_entered)
+
 
 func _physics_process(delta):
 	# Move the fire hazard downward
 	position.y += descent_speed * delta
 
-	#for boom in get_children():
-		#if boom is AnimatedSprite2D:
-			#pass
-
-	
 	for data in light_data:
 		var light = data["node"]
 
@@ -75,5 +67,3 @@ func _on_body_entered(body):
 	if body.is_in_group("player"):
 		if body.has_method("die_fire"):
 			body.die_fire()
-		#body.die  # Hide the player
-		

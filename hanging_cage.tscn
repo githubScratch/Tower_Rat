@@ -1,0 +1,92 @@
+[gd_scene load_steps=8 format=3 uid="uid://dsy7t7ginhl5k"]
+
+[ext_resource type="Texture2D" uid="uid://b60w5lubcj66p" path="res://sprites/Dungeon Tile Set.png" id="1_rpqrk"]
+[ext_resource type="Script" path="res://cage.gd" id="2_ldtce"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_g2b7s"]
+radius = 2.0
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_bb77m"]
+size = Vector2(3, 15)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_fcssr"]
+radius = 2.0
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_y2wgw"]
+size = Vector2(19, 1)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ed36r"]
+size = Vector2(19, 1)
+
+[node name="Node2D" type="Node2D"]
+
+[node name="CeilingAnchor" type="RigidBody2D" parent="."]
+mass = 10000.0
+gravity_scale = 0.0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CeilingAnchor"]
+position = Vector2(0, -31)
+shape = SubResource("CircleShape2D_g2b7s")
+one_way_collision = true
+
+[node name="ChainBody" type="RigidBody2D" parent="."]
+collision_layer = 0
+collision_mask = 0
+mass = 0.05
+
+[node name="chainsprite" type="Sprite2D" parent="ChainBody"]
+position = Vector2(0, -25)
+texture = ExtResource("1_rpqrk")
+region_enabled = true
+region_rect = Rect2(32, 192, 16, 16)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ChainBody"]
+position = Vector2(0, -24)
+shape = SubResource("RectangleShape2D_bb77m")
+
+[node name="Cage" type="RigidBody2D" parent="."]
+collision_layer = 4
+collision_mask = 4
+mass = 0.05
+gravity_scale = 0.25
+center_of_mass_mode = 1
+center_of_mass = Vector2(0, 10)
+linear_velocity = Vector2(2, 0)
+script = ExtResource("2_ldtce")
+
+[node name="CageAnchor" type="CollisionShape2D" parent="Cage"]
+position = Vector2(0, -17)
+shape = SubResource("CircleShape2D_fcssr")
+disabled = true
+
+[node name="cagesprite" type="Sprite2D" parent="Cage"]
+texture = ExtResource("1_rpqrk")
+region_enabled = true
+region_rect = Rect2(120, 192, 32, 40)
+
+[node name="platform" type="CollisionShape2D" parent="Cage"]
+z_index = 1
+position = Vector2(-0.5, -7.5)
+shape = SubResource("RectangleShape2D_y2wgw")
+one_way_collision = true
+
+[node name="platform2" type="CollisionShape2D" parent="Cage"]
+position = Vector2(-0.5, 10.5)
+shape = SubResource("RectangleShape2D_ed36r")
+one_way_collision = true
+
+[node name="PinJoint2D" type="PinJoint2D" parent="."]
+position = Vector2(0, -31)
+node_a = NodePath("../CeilingAnchor")
+node_b = NodePath("../ChainBody")
+
+[node name="PinJoint2D2" type="PinJoint2D" parent="."]
+position = Vector2(0, -17)
+node_a = NodePath("../ChainBody")
+node_b = NodePath("../Cage")
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 2.0
+autostart = true
+
+[connection signal="timeout" from="Timer" to="Cage" method="_on_timer_timeout"]
