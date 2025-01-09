@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bkei0ua4cs3rw"
-path="res://.godot/imported/rat and bat spritesheet calciumtrice.png-4a06eb7dcc7e6efba13312b21bdb7ca5.ctex"
+uid="uid://dsrdpn6qxpiww"
+path="res://.godot/imported/r4.png-59868ae57275e51a6dce6633199d4592.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://sprites/rat and bat spritesheet calciumtrice.png"
-dest_files=["res://.godot/imported/rat and bat spritesheet calciumtrice.png-4a06eb7dcc7e6efba13312b21bdb7ca5.ctex"]
+source_file="res://sprites/rat/r4.png"
+dest_files=["res://.godot/imported/r4.png-59868ae57275e51a6dce6633199d4592.ctex"]
 
 [params]
 

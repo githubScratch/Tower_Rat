@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" path="res://fire.gd" id="1_h3st4"]
 [ext_resource type="Texture2D" uid="uid://bgfb27ghdt4wy" path="res://vfx/2d_lights_and_shadows_neutral_point_light.webp" id="2_8lkl3"]
-[ext_resource type="Shader" path="res://testShader.gdshader" id="3_5fong"]
+[ext_resource type="Shader" path="res://old/testShader.gdshader" id="3_5fong"]
 [ext_resource type="AudioStream" uid="uid://4r47aos532w0" path="res://sfx/Retro Ambience 02.wav" id="3_faq30"]
 [ext_resource type="AudioStream" uid="uid://dex31v0oyc2ad" path="res://sfx/Retro Ambience Acute 01.wav" id="4_24lyh"]
 [ext_resource type="AudioStream" uid="uid://brnuky5qgfgff" path="res://sfx/Retro Explosion Long 02.wav" id="4_dpvc3"]
@@ -13,7 +13,7 @@
 [ext_resource type="Texture2D" uid="uid://blat54upcllt7" path="res://vfx/smoke6.png" id="10_ksbve"]
 [ext_resource type="Texture2D" uid="uid://djlifh3uteneh" path="res://vfx/smoke5.png" id="11_1vbom"]
 [ext_resource type="Texture2D" uid="uid://cvbpnywtmi1sg" path="res://vfx/magic_particles_14.png" id="12_1x6ii"]
-[ext_resource type="Script" path="res://particle_rendering.gd" id="13_16e52"]
+[ext_resource type="Script" path="res://old/particle_rendering.gd" id="13_16e52"]
 [ext_resource type="Texture2D" uid="uid://b54uokbikbnt6" path="res://vfx/magic_particles_7.png" id="13_hcrha"]
 [ext_resource type="Texture2D" uid="uid://bp0o7a5vfsg7r" path="res://vfx/magic_particles_10.png" id="14_ikswv"]
 

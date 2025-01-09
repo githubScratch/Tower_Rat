@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://csydvxd2ahkj"
-path="res://.godot/imported/rat slide slam fall.png-c9cc853d02522ea008b5c55210e68987.ctex"
+uid="uid://bsqd57i3vdd6y"
+path="res://.godot/imported/rat slide slam.png-4f72efdfbd116165fcb1fbd6ab9404ce.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://sprites/rat slide slam fall.png"
-dest_files=["res://.godot/imported/rat slide slam fall.png-c9cc853d02522ea008b5c55210e68987.ctex"]
+source_file="res://sprites/rat/rat slide slam.png"
+dest_files=["res://.godot/imported/rat slide slam.png-4f72efdfbd116165fcb1fbd6ab9404ce.ctex"]
 
 [params]
 

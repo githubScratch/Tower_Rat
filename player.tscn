@@ -1,14 +1,15 @@
-[gd_scene load_steps=89 format=3 uid="uid://be4uay3rlk1re"]
+[gd_scene load_steps=97 format=3 uid="uid://be4uay3rlk1re"]
 
 [ext_resource type="Script" path="res://player.gd" id="1_xh1e1"]
-[ext_resource type="Texture2D" uid="uid://bkei0ua4cs3rw" path="res://sprites/rat and bat spritesheet calciumtrice.png" id="2_nf01l"]
-[ext_resource type="Texture2D" uid="uid://csydvxd2ahkj" path="res://sprites/rat slide slam fall.png" id="3_ixbfw"]
-[ext_resource type="Texture2D" uid="uid://bsqd57i3vdd6y" path="res://sprites/rat slide slam.png" id="3_lkla8"]
+[ext_resource type="Texture2D" uid="uid://bkei0ua4cs3rw" path="res://sprites/rat/rat and bat spritesheet calciumtrice.png" id="2_nf01l"]
+[ext_resource type="Texture2D" uid="uid://csydvxd2ahkj" path="res://sprites/rat/rat slide slam fall.png" id="3_ixbfw"]
+[ext_resource type="Texture2D" uid="uid://bsqd57i3vdd6y" path="res://sprites/rat/rat slide slam.png" id="3_lkla8"]
 [ext_resource type="Texture2D" uid="uid://bgfb27ghdt4wy" path="res://vfx/2d_lights_and_shadows_neutral_point_light.webp" id="5_27lf8"]
 [ext_resource type="AudioStream" uid="uid://bqlxnm4n8v3gl" path="res://sfx/Retro Negative Long 12.wav" id="6_cjmhs"]
 [ext_resource type="AudioStream" uid="uid://b1a6w1x3s6ga2" path="res://sfx/Retro Event Wrong Echo 03.wav" id="7_wteu4"]
 [ext_resource type="AudioStream" uid="uid://cpvsgivq0kbll" path="res://sfx/ratWalk.wav" id="8_tjo8r"]
 [ext_resource type="AudioStream" uid="uid://dvt2liesdq7fd" path="res://sfx/Retro Swooosh Jump.wav" id="9_hsguv"]
+[ext_resource type="Texture2D" uid="uid://ibg5viq3rphl" path="res://sprites/rat/r1.png" id="10_s6fje"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_uyv0p"]
 size = Vector2(7, 8)
@@ -677,12 +678,73 @@ tracks/0/keys = {
 "times": PackedFloat32Array(0, 4),
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
-"values": [Vector2(0.25, 0.25), Vector2(2, 2)]
+"values": [Vector2(0.75, 0.75), Vector2(2, 2)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("../deadParticles:emitting")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath(".:offset")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 0)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("%deadLight:texture_scale")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [1.0]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("%deadLight:energy")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [2.0]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("%deadLight:color")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(0.597118, 0, 0.0703867, 1)]
 }
 
 [sub_resource type="Animation" id="Animation_x1xf8"]
 resource_name = "dead_zoom"
-length = 4.0
+length = 40.0
+loop_mode = 1
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -690,10 +752,70 @@ tracks/0/path = NodePath(".:zoom")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(-0.0333333, 3.96667),
+"times": PackedFloat32Array(0, 4),
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
-"values": [Vector2(1, 1), Vector2(2, 2)]
+"values": [Vector2(1, 1), Vector2(0.75, 2)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = false
+tracks/1/path = NodePath("../deadParticles:emitting")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.233333, 4),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [false, false, false]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = false
+tracks/2/path = NodePath(".:offset")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 4.03333),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(0, 0), Vector2(0, -100)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("%deadLight:texture_scale")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0.0333333, 3.96667),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [1.0, 5.0]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = false
+tracks/4/path = NodePath("%deadLight:energy")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0.0333333, 3.93333),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [2.0, 3.0]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("%deadLight:color")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0.0666667, 3.96667),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(0.597118, 0, 0.0703867, 1), Color(0.516285, 0.2709, 0.63, 1)]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_1j11o"]
@@ -702,7 +824,44 @@ _data = {
 "dead_zoom": SubResource("Animation_x1xf8")
 }
 
+[sub_resource type="Gradient" id="Gradient_qepsg"]
+offsets = PackedFloat32Array(0, 0.762295, 1)
+colors = PackedColorArray(0.799333, 0.57, 1, 1, 0.279893, 0.1312, 0.41, 0.901961, 0.4096, 0.192, 0.6, 0)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_mg3wr"]
+gradient = SubResource("Gradient_qepsg")
+
+[sub_resource type="Curve" id="Curve_jp0ql"]
+max_value = 100.0
+_data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(0.993333, 100), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_uck71"]
+curve = SubResource("Curve_jp0ql")
+
+[sub_resource type="Curve" id="Curve_8jalb"]
+max_value = 1.75
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 1.57692), 2.07332, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_x6wdc"]
+curve = SubResource("Curve_8jalb")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_jse3g"]
+particle_flag_disable_z = true
+emission_shape_offset = Vector3(0, -15, 0)
+gravity = Vector3(0, -40, 0)
+linear_accel_min = 18.28
+linear_accel_max = 18.28
+tangential_accel_min = -1.5
+tangential_accel_max = 1.5
+damping_max = 5.0
+damping_curve = SubResource("CurveTexture_uck71")
+scale_curve = SubResource("CurveTexture_x6wdc")
+color_ramp = SubResource("GradientTexture1D_mg3wr")
+
 [node name="Player" type="CharacterBody2D" node_paths=PackedStringArray("PlayerSprite", "PlayerCollider") groups=["player"]]
+z_index = 1
 collision_layer = 13
 collision_mask = 15
 floor_constant_speed = true
@@ -713,7 +872,7 @@ PlayerSprite = NodePath("SpriteHolder/AnimatedSprite2D")
 PlayerCollider = NodePath("CollisionShape2D")
 timeToReachZeroSpeed = 0.3
 runningModifier = true
-jumpHeight = 1.0
+jumpHeight = 1.25
 jumps = 2
 gravityScale = 10.476
 terminalVelocity = 400.0
@@ -738,6 +897,7 @@ shape = SubResource("RectangleShape2D_uyv0p")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="SpriteHolder" groups=["player"]]
 process_mode = 3
+z_index = 1
 position = Vector2(0, -16)
 sprite_frames = SubResource("SpriteFrames_qp3cg")
 animation = &"idle"
@@ -776,7 +936,7 @@ pitch_scale = 2.0
 
 [node name="Camera2D" type="Camera2D" parent="."]
 position = Vector2(0, -1)
-zoom = Vector2(0.25, 0.25)
+zoom = Vector2(0.75, 0.75)
 position_smoothing_enabled = true
 position_smoothing_speed = 20.0
 drag_horizontal_enabled = true
@@ -786,3 +946,11 @@ editor_draw_limits = true
 libraries = {
 "": SubResource("AnimationLibrary_1j11o")
 }
+
+[node name="deadParticles" type="GPUParticles2D" parent="."]
+z_index = 100
+emitting = false
+amount = 255
+process_material = SubResource("ParticleProcessMaterial_jse3g")
+texture = ExtResource("10_s6fje")
+lifetime = 2.0

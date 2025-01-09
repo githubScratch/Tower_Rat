@@ -17,6 +17,7 @@ class_name PlatformerController2D
 @onready var die_spikes_sfx: AudioStreamPlayer2D = $dieSpikesSFX
 @onready var rat_walk: AudioStreamPlayer2D = $ratWalk
 @onready var rat_dash: AudioStreamPlayer2D = $ratDash
+@onready var dead_particles: GPUParticles2D = $deadParticles
 
 #INFO HORIZONTAL MOVEMENT 
 @export_category("L/R Movement")
@@ -198,10 +199,12 @@ var twirlTap
 
 func _ready():
 	dead_light.visible = false
-	print("Player groups at start: ", get_groups())
+	dead_particles.emitting = false
+	var count = GameManager.get_reset_count()
+	dead_particles.amount = max(1, count)
+	print("Count: ", count)
 	if !is_in_group("player"):
 		add_to_group("player")
-		print("Added to player group")
 
 	wasMovingR = true
 	anim = PlayerSprite
@@ -742,18 +745,22 @@ func _placeHolder():
 func die_fire():
 	dead_light.visible = true
 	die_fire_sfx.play()
+	var tree = get_tree()
 	if !is_dead:
 		velocity.x = 0
 		velocity.y = -150
 		is_dead = true
-		print("dead")
 		#set_physics_process(false)
 		set_process_input(false)
 		anim.play("die")
 		animation_player.play("dead_zoom")
-	var tree = get_tree()
+		await tree.create_timer(0.7).timeout
+		dead_particles.emitting = true
+	if is_dead:
+		dead_particles.emitting = true
 	await tree.create_timer(4.0).timeout
 	if tree and is_instance_valid(self):
+		GameManager.increment_reset_count()
 		tree.reload_current_scene()
 
 func die_spikes():
@@ -764,9 +771,5 @@ func die_spikes():
 		velocity.x = 0
 		velocity.y = -100
 		is_dead = true
-		print("dead")
-		#set_physics_process(false)
 		set_process_input(false)
 		anim.play("die")
-		#await get_tree().create_timer(3.0).timeout  # Wait 1 second
-		#get_tree().reload_current_scene()

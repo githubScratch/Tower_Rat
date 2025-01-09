@@ -1,6 +1,6 @@
 [gd_scene load_steps=57 format=4 uid="uid://cul4def3dldg0"]
 
-[ext_resource type="Script" path="res://world.gd" id="1_tjm7w"]
+[ext_resource type="Script" path="res://old/world.gd" id="1_tjm7w"]
 [ext_resource type="PackedScene" uid="uid://be4uay3rlk1re" path="res://player.tscn" id="2_or717"]
 [ext_resource type="Texture2D" uid="uid://b60w5lubcj66p" path="res://sprites/Dungeon Tile Set.png" id="3_jrntf"]
 [ext_resource type="Texture2D" uid="uid://bgfb27ghdt4wy" path="res://vfx/2d_lights_and_shadows_neutral_point_light.webp" id="3_p3bs3"]
@@ -1025,7 +1025,6 @@ _data = {
 script = ExtResource("1_tjm7w")
 
 [node name="CanvasModulate" type="CanvasModulate" parent="."]
-visible = false
 light_mask = 2
 visibility_layer = 2
 z_index = 3
@@ -1041,7 +1040,6 @@ follow_viewport_scale = 210.524
 environment = SubResource("Environment_dg4fr")
 
 [node name="Player" parent="." instance=ExtResource("2_or717")]
-z_index = 1
 position = Vector2(-135, -165)
 jumpVariable = 1.0
 

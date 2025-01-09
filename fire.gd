@@ -62,7 +62,6 @@ func _physics_process(delta):
 		light.position = data["base_position"] + pos_variation
 
 func _on_body_entered(body):
-	print("Collision detected with: ", body.name)
 	if body.is_in_group("player"):
 		if body.has_method("die_fire"):
 			body.die_fire()
