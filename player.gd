@@ -154,6 +154,10 @@ var movementInputMonitoring: Vector2 = Vector2(true, true) #movementInputMonitor
 var is_dropping_through: bool = false
 var is_dead: bool = false
 
+var wall_slide_buffer_time: float = 0.1  # Adjust this value to change buffer window
+var wall_slide_buffer_timer: float = 0.0
+var was_wall_sliding: bool = false
+
 var gdelta: float = 1
 
 var dset = false
@@ -464,25 +468,44 @@ func _physics_process(delta):
 	else:
 		appliedGravity = gravityScale
 	
-	if is_on_wall() and !groundPounding and !is_dead:
-		appliedTerminalVelocity = terminalVelocity / wallSliding
-		anim.play("slide")
-		if wallLatching and ((wallLatchingModifer and latchHold) or !wallLatchingModifer):
-			appliedGravity = 0
-			
-			if velocity.y < 0:
-				velocity.y += 50
-			if velocity.y > 0:
-				velocity.y = 0
-				
-			if wallLatchingModifer and latchHold and movementInputMonitoring == Vector2(true, true):
-				velocity.x = 0
-			
-		elif wallSliding != 1 and velocity.y > 0:
-			appliedGravity = appliedGravity / wallSliding
-	elif !is_on_wall() and !groundPounding:
-		appliedTerminalVelocity = terminalVelocity
+	if is_on_wall() and !groundPounding and !is_dead and !is_on_floor():
+	# Get wall normal to determine which side we're touching
+		var wall_normal = get_wall_normal()
+	# Check if pressing toward wall (wall_normal.x is 1 for right wall, -1 for left wall)
+		var pressing_toward_wall = (wall_normal.x > 0 and leftHold) or (wall_normal.x < 0 and rightHold)
 	
+		if pressing_toward_wall:
+			wall_slide_buffer_timer = wall_slide_buffer_time
+			was_wall_sliding = true
+			appliedTerminalVelocity = terminalVelocity / wallSliding
+			anim.play("slide")
+			if wallLatching and ((wallLatchingModifer and latchHold) or !wallLatchingModifer):
+				appliedGravity = 0
+			
+				if velocity.y < 0:
+					velocity.y += 50
+				if velocity.y > 0:
+					velocity.y = 0
+				
+				if wallLatchingModifer and latchHold and movementInputMonitoring == Vector2(true, true):
+					velocity.x = 0
+			elif wallSliding != 1 and velocity.y > 0:
+				appliedGravity = appliedGravity / wallSliding
+		else:
+			appliedTerminalVelocity = terminalVelocity
+			appliedGravity = gravityScale if velocity.y <= 0 else gravityScale * descendingGravityFactor
+	elif !is_on_wall() and !groundPounding:
+		if was_wall_sliding and wall_slide_buffer_timer > 0:
+			appliedTerminalVelocity = terminalVelocity
+			appliedGravity = gravityScale if velocity.y <= 0 else gravityScale * descendingGravityFactor
+			wall_slide_buffer_timer -= delta  # Decrease buffer timer
+		else:
+		# Buffer expired or wasn't wall sliding
+			was_wall_sliding = false
+			appliedTerminalVelocity = terminalVelocity
+			appliedGravity = gravityScale if velocity.y <= 0 else gravityScale * descendingGravityFactor
+			
+
 	if gravityActive:
 		if velocity.y < appliedTerminalVelocity:
 			velocity.y += appliedGravity
