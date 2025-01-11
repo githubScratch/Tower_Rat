@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://dsy7t7ginhl5k"]
+[gd_scene load_steps=11 format=3 uid="uid://dsy7t7ginhl5k"]
 
 [ext_resource type="Texture2D" uid="uid://b60w5lubcj66p" path="res://sprites/Dungeon Tile Set.png" id="1_rpqrk"]
 [ext_resource type="Script" path="res://cage.gd" id="2_ldtce"]
@@ -17,6 +17,19 @@ size = Vector2(19, 1)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ed36r"]
 size = Vector2(19, 1)
+
+[sub_resource type="Animation" id="Animation_k47xc"]
+length = 0.001
+
+[sub_resource type="Animation" id="Animation_tx6ak"]
+resource_name = "lift"
+length = 4.0
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_r6g7t"]
+_data = {
+"RESET": SubResource("Animation_k47xc"),
+"lift": SubResource("Animation_tx6ak")
+}
 
 [node name="Node2D" type="Node2D"]
 
@@ -92,5 +105,10 @@ node_b = NodePath("../Cage")
 [node name="Timer" type="Timer" parent="."]
 wait_time = 2.0
 autostart = true
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_r6g7t")
+}
 
 [connection signal="timeout" from="Timer" to="Cage" method="_on_timer_timeout"]

@@ -1,4 +1,4 @@
-[gd_scene load_steps=164 format=3 uid="uid://dri44ivdp0iu5"]
+[gd_scene load_steps=168 format=3 uid="uid://dri44ivdp0iu5"]
 
 [ext_resource type="Script" path="res://fire.gd" id="1_h3st4"]
 [ext_resource type="Texture2D" uid="uid://bgfb27ghdt4wy" path="res://vfx/2d_lights_and_shadows_neutral_point_light.webp" id="2_8lkl3"]
@@ -1027,6 +1027,383 @@ shader_parameter/colorOffsetIntensity = 1.3
 [sub_resource type="NoiseTexture2D" id="NoiseTexture2D_eyx17"]
 noise = SubResource("FastNoiseLite_43n1b")
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_w7chh"]
+size = Vector2(856, 248)
+
+[sub_resource type="Animation" id="Animation_qs22j"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("3:offset")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("1:offset")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 0)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("4:offset")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 0)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("5:offset")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 0)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("6:offset")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 0)]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("7:offset")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 0)]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("8:offset")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 0)]
+}
+tracks/7/type = "value"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("9:offset")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 0)]
+}
+tracks/8/type = "value"
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/path = NodePath("10:offset")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 0)]
+}
+tracks/9/type = "value"
+tracks/9/imported = false
+tracks/9/enabled = true
+tracks/9/path = NodePath("11:offset")
+tracks/9/interp = 1
+tracks/9/loop_wrap = true
+tracks/9/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 0)]
+}
+tracks/10/type = "value"
+tracks/10/imported = false
+tracks/10/enabled = true
+tracks/10/path = NodePath("16:offset")
+tracks/10/interp = 1
+tracks/10/loop_wrap = true
+tracks/10/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 0)]
+}
+tracks/11/type = "value"
+tracks/11/imported = false
+tracks/11/enabled = true
+tracks/11/path = NodePath("15:offset")
+tracks/11/interp = 1
+tracks/11/loop_wrap = true
+tracks/11/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 0)]
+}
+tracks/12/type = "value"
+tracks/12/imported = false
+tracks/12/enabled = true
+tracks/12/path = NodePath("14:offset")
+tracks/12/interp = 1
+tracks/12/loop_wrap = true
+tracks/12/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 0)]
+}
+tracks/13/type = "value"
+tracks/13/imported = false
+tracks/13/enabled = true
+tracks/13/path = NodePath("13:offset")
+tracks/13/interp = 1
+tracks/13/loop_wrap = true
+tracks/13/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 0)]
+}
+tracks/14/type = "value"
+tracks/14/imported = false
+tracks/14/enabled = true
+tracks/14/path = NodePath("12:offset")
+tracks/14/interp = 1
+tracks/14/loop_wrap = true
+tracks/14/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_xxcq1"]
+resource_name = "wandering_lights"
+length = 8.0
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("3:offset")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0.0666667, 3.83333, 5.36667, 7.96667),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(0, 0), Vector2(222, 50), Vector2(180, 25), Vector2(0, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("1:offset")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0.0333333, 3.46667, 5.96667, 7.93333),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(0, 0), Vector2(111, 0), Vector2(110, -50), Vector2(0, 0)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("4:offset")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0.0666667, 2.56667, 4.56667, 7.9),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(0, 0), Vector2(-80, 30), Vector2(-60, 60), Vector2(0, 0)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("5:offset")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0.0333333, 2.56667, 4.63333, 7.96667),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(0, 0), Vector2(-225, 75), Vector2(-200, 0), Vector2(0, 0)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("6:offset")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0, 3.6, 8.06667),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(0, 0), Vector2(-80, 45), Vector2(0, 0)]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("7:offset")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0.0333333, 2.3, 3.66667, 8.13333),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(0, 0), Vector2(88, 22), Vector2(66, 66), Vector2(0, 0)]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("8:offset")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0, 3.76667, 5.23333, 8.1),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(0, 0), Vector2(111, -99), Vector2(88.376, 55), Vector2(0, 0)]
+}
+tracks/7/type = "value"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("9:offset")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(0.0333333, 3.86667, 8.1),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(0, 0), Vector2(200, -75), Vector2(0, 0)]
+}
+tracks/8/type = "value"
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/path = NodePath("10:offset")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/keys = {
+"times": PackedFloat32Array(0.0333333, 2.16667, 5.76667, 8.1),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(0, 0), Vector2(-55, -55), Vector2(-33, 12), Vector2(0, 0)]
+}
+tracks/9/type = "value"
+tracks/9/imported = false
+tracks/9/enabled = true
+tracks/9/path = NodePath("11:offset")
+tracks/9/interp = 1
+tracks/9/loop_wrap = true
+tracks/9/keys = {
+"times": PackedFloat32Array(0.0333333, 3.3, 5.26667, 8.03333),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(0, 0), Vector2(45, -133), Vector2(45, -69.199), Vector2(0, 0)]
+}
+tracks/10/type = "value"
+tracks/10/imported = false
+tracks/10/enabled = true
+tracks/10/path = NodePath("12:offset")
+tracks/10/interp = 1
+tracks/10/loop_wrap = true
+tracks/10/keys = {
+"times": PackedFloat32Array(0, 2.6, 5.2, 8.06667),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(0, 0), Vector2(111, -66), Vector2(50, -33), Vector2(0, 0)]
+}
+tracks/11/type = "value"
+tracks/11/imported = false
+tracks/11/enabled = true
+tracks/11/path = NodePath("13:offset")
+tracks/11/interp = 1
+tracks/11/loop_wrap = true
+tracks/11/keys = {
+"times": PackedFloat32Array(0.0333333, 2.8, 4.46667, 8),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(0, 0), Vector2(-66, 22), Vector2(-88, 66), Vector2(0, 0)]
+}
+tracks/12/type = "value"
+tracks/12/imported = false
+tracks/12/enabled = true
+tracks/12/path = NodePath("14:offset")
+tracks/12/interp = 1
+tracks/12/loop_wrap = true
+tracks/12/keys = {
+"times": PackedFloat32Array(0.0333333, 3.66667, 5.93333, 8.06667),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(0, 0), Vector2(-77, 77), Vector2(-66, 11), Vector2(0, 0)]
+}
+tracks/13/type = "value"
+tracks/13/imported = false
+tracks/13/enabled = true
+tracks/13/path = NodePath("15:offset")
+tracks/13/interp = 1
+tracks/13/loop_wrap = true
+tracks/13/keys = {
+"times": PackedFloat32Array(0, 2.8, 4.06667, 8.03333),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(0, 0), Vector2(153, -88), Vector2(111, -66), Vector2(0, 0)]
+}
+tracks/14/type = "value"
+tracks/14/imported = false
+tracks/14/enabled = true
+tracks/14/path = NodePath("16:offset")
+tracks/14/interp = 1
+tracks/14/loop_wrap = true
+tracks/14/keys = {
+"times": PackedFloat32Array(0.0333333, 3.46667, 5.43333, 7.96667),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(0, 0), Vector2(222, -33), Vector2(150, 15), Vector2(0, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_j3h24"]
+_data = {
+"RESET": SubResource("Animation_qs22j"),
+"wandering_lights": SubResource("Animation_xxcq1")
+}
+
 [node name="Node2D" type="Node2D"]
 
 [node name="Fire" type="Area2D" parent="."]
@@ -1094,7 +1471,7 @@ energy = 3.0
 texture = ExtResource("2_8lkl3")
 texture_scale = 0.75
 
-[node name="PointLight2D2" type="PointLight2D" parent="Fire"]
+[node name="3" type="PointLight2D" parent="Fire"]
 light_mask = 3
 visibility_layer = 3
 z_index = 5
@@ -1105,7 +1482,7 @@ energy = 3.0
 texture = ExtResource("2_8lkl3")
 texture_scale = 0.75
 
-[node name="PointLight2D3" type="PointLight2D" parent="Fire"]
+[node name="4" type="PointLight2D" parent="Fire"]
 light_mask = 3
 visibility_layer = 3
 z_index = 5
@@ -1116,7 +1493,7 @@ energy = 3.0
 texture = ExtResource("2_8lkl3")
 texture_scale = 0.75
 
-[node name="PointLight2D4" type="PointLight2D" parent="Fire"]
+[node name="5" type="PointLight2D" parent="Fire"]
 light_mask = 3
 visibility_layer = 3
 z_index = 5
@@ -1127,7 +1504,7 @@ energy = 3.0
 texture = ExtResource("2_8lkl3")
 texture_scale = 0.75
 
-[node name="PointLight2D5" type="PointLight2D" parent="Fire"]
+[node name="6" type="PointLight2D" parent="Fire"]
 light_mask = 3
 visibility_layer = 3
 z_index = 5
@@ -1138,7 +1515,7 @@ energy = 3.0
 texture = ExtResource("2_8lkl3")
 texture_scale = 0.75
 
-[node name="PointLight2D6" type="PointLight2D" parent="Fire"]
+[node name="7" type="PointLight2D" parent="Fire"]
 light_mask = 3
 visibility_layer = 3
 z_index = 5
@@ -1149,7 +1526,7 @@ energy = 3.0
 texture = ExtResource("2_8lkl3")
 texture_scale = 0.75
 
-[node name="PointLight2D7" type="PointLight2D" parent="Fire"]
+[node name="8" type="PointLight2D" parent="Fire"]
 light_mask = 3
 visibility_layer = 3
 z_index = 5
@@ -1160,7 +1537,7 @@ energy = 3.0
 texture = ExtResource("2_8lkl3")
 texture_scale = 0.75
 
-[node name="PointLight2D8" type="PointLight2D" parent="Fire"]
+[node name="9" type="PointLight2D" parent="Fire"]
 light_mask = 3
 visibility_layer = 3
 z_index = 5
@@ -1171,7 +1548,7 @@ energy = 3.0
 texture = ExtResource("2_8lkl3")
 texture_scale = 0.75
 
-[node name="PointLight2D9" type="PointLight2D" parent="Fire"]
+[node name="10" type="PointLight2D" parent="Fire"]
 light_mask = 3
 visibility_layer = 3
 z_index = 5
@@ -1182,7 +1559,7 @@ energy = 3.0
 texture = ExtResource("2_8lkl3")
 texture_scale = 0.75
 
-[node name="PointLight2D10" type="PointLight2D" parent="Fire"]
+[node name="11" type="PointLight2D" parent="Fire"]
 light_mask = 3
 visibility_layer = 3
 z_index = 5
@@ -1193,7 +1570,7 @@ energy = 3.0
 texture = ExtResource("2_8lkl3")
 texture_scale = 0.75
 
-[node name="PointLight2D11" type="PointLight2D" parent="Fire"]
+[node name="12" type="PointLight2D" parent="Fire"]
 light_mask = 3
 visibility_layer = 3
 z_index = 5
@@ -1204,7 +1581,7 @@ energy = 3.0
 texture = ExtResource("2_8lkl3")
 texture_scale = 0.75
 
-[node name="PointLight2D12" type="PointLight2D" parent="Fire"]
+[node name="13" type="PointLight2D" parent="Fire"]
 light_mask = 3
 visibility_layer = 3
 z_index = 5
@@ -1215,7 +1592,7 @@ energy = 3.0
 texture = ExtResource("2_8lkl3")
 texture_scale = 0.75
 
-[node name="PointLight2D13" type="PointLight2D" parent="Fire"]
+[node name="14" type="PointLight2D" parent="Fire"]
 light_mask = 3
 visibility_layer = 3
 z_index = 5
@@ -1226,7 +1603,7 @@ energy = 3.0
 texture = ExtResource("2_8lkl3")
 texture_scale = 0.75
 
-[node name="PointLight2D14" type="PointLight2D" parent="Fire"]
+[node name="15" type="PointLight2D" parent="Fire"]
 light_mask = 3
 visibility_layer = 3
 z_index = 5
@@ -1237,7 +1614,7 @@ energy = 3.0
 texture = ExtResource("2_8lkl3")
 texture_scale = 0.75
 
-[node name="PointLight2D15" type="PointLight2D" parent="Fire"]
+[node name="16" type="PointLight2D" parent="Fire"]
 light_mask = 3
 visibility_layer = 3
 z_index = 5
@@ -1248,7 +1625,7 @@ energy = 3.0
 texture = ExtResource("2_8lkl3")
 texture_scale = 0.75
 
-[node name="PointLight2D16" type="PointLight2D" parent="Fire"]
+[node name="17" type="PointLight2D" parent="Fire"]
 light_mask = 3
 visibility_layer = 3
 z_index = 5
@@ -1259,7 +1636,7 @@ energy = 3.0
 texture = ExtResource("2_8lkl3")
 texture_scale = 0.75
 
-[node name="PointLight2D17" type="PointLight2D" parent="Fire"]
+[node name="18" type="PointLight2D" parent="Fire"]
 light_mask = 3
 visibility_layer = 3
 z_index = 5
@@ -1270,7 +1647,7 @@ energy = 3.0
 texture = ExtResource("2_8lkl3")
 texture_scale = 0.75
 
-[node name="PointLight2D18" type="PointLight2D" parent="Fire"]
+[node name="19" type="PointLight2D" parent="Fire"]
 light_mask = 3
 visibility_layer = 3
 z_index = 5
@@ -1281,7 +1658,7 @@ energy = 3.0
 texture = ExtResource("2_8lkl3")
 texture_scale = 0.75
 
-[node name="PointLight2D19" type="PointLight2D" parent="Fire"]
+[node name="20" type="PointLight2D" parent="Fire"]
 light_mask = 3
 visibility_layer = 3
 z_index = 5
@@ -1292,7 +1669,7 @@ energy = 3.0
 texture = ExtResource("2_8lkl3")
 texture_scale = 0.75
 
-[node name="PointLight2D20" type="PointLight2D" parent="Fire"]
+[node name="21" type="PointLight2D" parent="Fire"]
 light_mask = 3
 visibility_layer = 3
 z_index = 5
@@ -1303,7 +1680,7 @@ energy = 3.0
 texture = ExtResource("2_8lkl3")
 texture_scale = 0.75
 
-[node name="2" type="PointLight2D" parent="Fire"]
+[node name="22" type="PointLight2D" parent="Fire"]
 light_mask = 3
 visibility_layer = 3
 z_index = 5
@@ -1311,78 +1688,6 @@ z_as_relative = false
 position = Vector2(0, -24)
 color = Color(0.494562, 0.151864, 0.978156, 1)
 energy = 3.0
-texture = ExtResource("2_8lkl3")
-texture_scale = 0.75
-
-[node name="PointLight2D22" type="PointLight2D" parent="Fire"]
-visible = false
-light_mask = 3
-visibility_layer = 3
-z_index = 5
-z_as_relative = false
-position = Vector2(96, -168)
-color = Color(0.494562, 0.151864, 0.978156, 1)
-energy = 25.0
-texture = ExtResource("2_8lkl3")
-texture_scale = 0.75
-
-[node name="PointLight2D23" type="PointLight2D" parent="Fire"]
-visible = false
-light_mask = 3
-visibility_layer = 3
-z_index = 5
-z_as_relative = false
-position = Vector2(224, -160)
-color = Color(0.494562, 0.151864, 0.978156, 1)
-energy = 25.0
-texture = ExtResource("2_8lkl3")
-texture_scale = 0.75
-
-[node name="PointLight2D24" type="PointLight2D" parent="Fire"]
-visible = false
-light_mask = 3
-visibility_layer = 3
-z_index = 5
-z_as_relative = false
-position = Vector2(360, -160)
-color = Color(0.494562, 0.151864, 0.978156, 1)
-energy = 25.0
-texture = ExtResource("2_8lkl3")
-texture_scale = 0.75
-
-[node name="PointLight2D25" type="PointLight2D" parent="Fire"]
-visible = false
-light_mask = 3
-visibility_layer = 3
-z_index = 5
-z_as_relative = false
-position = Vector2(488, -152)
-color = Color(0.494562, 0.151864, 0.978156, 1)
-energy = 25.0
-texture = ExtResource("2_8lkl3")
-texture_scale = 0.75
-
-[node name="PointLight2D26" type="PointLight2D" parent="Fire"]
-visible = false
-light_mask = 3
-visibility_layer = 3
-z_index = 5
-z_as_relative = false
-position = Vector2(592, -152)
-color = Color(0.494562, 0.151864, 0.978156, 1)
-energy = 25.0
-texture = ExtResource("2_8lkl3")
-texture_scale = 0.75
-
-[node name="PointLight2D27" type="PointLight2D" parent="Fire"]
-visible = false
-light_mask = 3
-visibility_layer = 3
-z_index = 5
-z_as_relative = false
-position = Vector2(-8, -152)
-color = Color(0.494562, 0.151864, 0.978156, 1)
-energy = 25.0
 texture = ExtResource("2_8lkl3")
 texture_scale = 0.75
 
@@ -1968,5 +2273,17 @@ offset_right = 376.0
 offset_bottom = 7.99997
 scale = Vector2(1.73983, 0.978938)
 texture = SubResource("NoiseTexture2D_eyx17")
+
+[node name="LightArea" type="Area2D" parent="Fire"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Fire/LightArea"]
+position = Vector2(332, 52)
+shape = SubResource("RectangleShape2D_w7chh")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Fire"]
+libraries = {
+"": SubResource("AnimationLibrary_j3h24")
+}
+autoplay = "wandering_lights"
 
 [connection signal="body_entered" from="Fire" to="Fire" method="_on_body_entered"]
