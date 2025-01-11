@@ -19,8 +19,8 @@ func _ready():
 			})
 
 
-	await get_tree().create_timer(25).timeout
-	descent_speed += 20
+	#await get_tree().create_timer(25).timeout
+	#descent_speed += 20
 
 func _physics_process(delta):
 	# Move the fire hazard downward
