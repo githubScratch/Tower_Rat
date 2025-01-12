@@ -1,6 +1,6 @@
 extends Node
 
-var reset_count = 155
+var reset_count = 0
 
 func increment_reset_count():
 	reset_count += 1

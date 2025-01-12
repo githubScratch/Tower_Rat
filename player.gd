@@ -196,13 +196,14 @@ var twirlTap
 @onready var camera_2d: Camera2D = $Camera2D
 @onready var animation_player: AnimationPlayer = $Camera2D/AnimationPlayer
 
+var platform_velocity: Vector2 = Vector2.ZERO
 
 func _ready():
 	dead_light.visible = false
 	dead_particles.emitting = false
 	var count = GameManager.get_reset_count()
-	dead_particles.amount = max(1, count)
-	print("Count: ", count)
+	#dead_particles.amount = max(1, count)
+	print("Reset count: ", count)
 	if !is_in_group("player"):
 		add_to_group("player")
 
@@ -277,6 +278,7 @@ func _updateData():
 	
 
 func _process(_delta):
+	platform_velocity = Vector2.ZERO
 	#INFO animations
 	#directions
 	if is_on_wall() and !is_on_floor() and latch and wallLatching and ((wallLatchingModifer and latchHold) or !wallLatchingModifer):
@@ -474,8 +476,11 @@ func _physics_process(delta):
 	if is_on_wall() and !groundPounding and !is_dead and !is_on_floor():
 	# Get wall normal to determine which side we're touching
 		var wall_normal = get_wall_normal()
-	# Check if pressing toward wall (wall_normal.x is 1 for right wall, -1 for left wall)
-		var pressing_toward_wall = (wall_normal.x > 0 and leftHold) or (wall_normal.x < 0 and rightHold)
+		# Check if pressing toward wall (wall_normal.x is 1 for right wall, -1 for left wall)
+		
+		#control whether input is needed to use wall_sliding by commenting one of the following out
+		#var pressing_toward_wall = (wall_normal.x > 0 and leftHold) or (wall_normal.x < 0 and rightHold)
+		var pressing_toward_wall = (wall_normal.x > 0) or (wall_normal.x < 0)
 	
 		if pressing_toward_wall:
 			wall_slide_buffer_timer = wall_slide_buffer_time
@@ -640,6 +645,17 @@ func _physics_process(delta):
 		_groundPound()
 	if is_on_floor() and groundPounding:
 		_endGroundPound()
+		
+	for i in range(get_slide_collision_count()):
+		var collision = get_slide_collision(i)
+		if collision:
+			var collider = collision.get_collider()
+			var platform = collider.get_parent()
+			if platform and platform is Node2D:
+				if "velocity" in platform:
+					platform_velocity = platform.velocity
+					break
+	#velocity += platform_velocity
 	move_and_slide()
 	
 	if upToCancel and upHold and groundPound:
@@ -740,7 +756,7 @@ func _endGroundPound():
 	gravityActive = true
 
 func _placeHolder():
-	print("")
+	pass
 
 func die_fire():
 	dead_light.visible = true
@@ -765,11 +781,11 @@ func die_fire():
 
 func die_spikes():
 	die_spikes_sfx.play()
-	dead_light.visible = true
+	#dead_light.visible = true
 	if !is_dead:
-		animation_player.play("dead_zoom")
-		velocity.x = 0
-		velocity.y = -100
-		is_dead = true
-		set_process_input(false)
+		#animation_player.play("dead_zoom")
+		#velocity.x = 0
+		velocity.y = -400
+		#is_dead = true
+		#set_process_input(false)
 		anim.play("die")

@@ -41,3 +41,13 @@ func _on_body_entered(body):
 	if body.is_in_group("player"):
 		if body.has_method("die_fire"):
 			body.die_fire()
+			Engine.time_scale = 1.0
+
+
+func _on_slow_zone_body_entered(body: Node2D) -> void:
+	if body.is_in_group("player"):
+		Engine.time_scale = 0.5
+
+func _on_slow_zone_body_exited(body: Node2D) -> void:
+	if body.is_in_group("player"):
+		Engine.time_scale = 1.0
