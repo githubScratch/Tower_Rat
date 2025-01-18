@@ -1,9 +1,10 @@
-[gd_scene load_steps=20 format=3 uid="uid://52x4aqu36q2b"]
+[gd_scene load_steps=26 format=3 uid="uid://52x4aqu36q2b"]
 
-[ext_resource type="Script" path="res://scroll.gd" id="1_6nsb8"]
+[ext_resource type="Script" path="res://entities/scroll.gd" id="1_6nsb8"]
 [ext_resource type="Texture2D" uid="uid://cv84f5r4j608q" path="res://sprites/scroll2 (2).png" id="2_1d4pe"]
 [ext_resource type="Texture2D" uid="uid://bgfb27ghdt4wy" path="res://vfx/2d_lights_and_shadows_neutral_point_light.webp" id="3_xvggm"]
 [ext_resource type="AudioStream" uid="uid://cua6r6468v5eu" path="res://sfx/Retro Magic Protection 25.wav" id="4_68gu8"]
+[ext_resource type="Texture2D" uid="uid://ciirqdqbdame4" path="res://sprites/7a.png" id="5_2ekrv"]
 
 [sub_resource type="Animation" id="Animation_gbwbf"]
 length = 0.001
@@ -187,6 +188,54 @@ tracks/14/keys = {
 "update": 0,
 "values": [0.25]
 }
+tracks/15/type = "value"
+tracks/15/imported = false
+tracks/15/enabled = true
+tracks/15/path = NodePath("wisp:offset")
+tracks/15/interp = 1
+tracks/15/loop_wrap = true
+tracks/15/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 0)]
+}
+tracks/16/type = "value"
+tracks/16/imported = false
+tracks/16/enabled = true
+tracks/16/path = NodePath("wisp:modulate")
+tracks/16/interp = 1
+tracks/16/loop_wrap = true
+tracks/16/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(0.91, 0.905147, 0.9009, 0.254902)]
+}
+tracks/17/type = "value"
+tracks/17/imported = false
+tracks/17/enabled = true
+tracks/17/path = NodePath("wisp:scale")
+tracks/17/interp = 1
+tracks/17/loop_wrap = true
+tracks/17/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1, 1)]
+}
+tracks/18/type = "value"
+tracks/18/imported = false
+tracks/18/enabled = true
+tracks/18/path = NodePath("wisp:visible")
+tracks/18/interp = 1
+tracks/18/loop_wrap = true
+tracks/18/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
 
 [sub_resource type="Animation" id="Animation_4boep"]
 resource_name = "rip"
@@ -282,10 +331,10 @@ tracks/7/path = NodePath("cantripLight:offset")
 tracks/7/interp = 1
 tracks/7/loop_wrap = true
 tracks/7/keys = {
-"times": PackedFloat32Array(0, 2.86667),
-"transitions": PackedFloat32Array(0.535887, 0.31864),
+"times": PackedFloat32Array(0, 2.86667, 8),
+"transitions": PackedFloat32Array(0.535887, 0.31864, 1),
 "update": 0,
-"values": [Vector2(0, 0), Vector2(0, 200)]
+"values": [Vector2(0, 0), Vector2(0, 200), Vector2(0, 250)]
 }
 tracks/8/type = "value"
 tracks/8/imported = false
@@ -370,6 +419,54 @@ tracks/14/keys = {
 "transitions": PackedFloat32Array(1, 1, 1),
 "update": 0,
 "values": [0.01, 0.25, 0.5]
+}
+tracks/15/type = "value"
+tracks/15/imported = false
+tracks/15/enabled = true
+tracks/15/path = NodePath("wisp:offset")
+tracks/15/interp = 1
+tracks/15/loop_wrap = true
+tracks/15/keys = {
+"times": PackedFloat32Array(0, 4.13333, 7.9),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(0, 0), Vector2(0, 200), Vector2(0, 400)]
+}
+tracks/16/type = "value"
+tracks/16/imported = false
+tracks/16/enabled = true
+tracks/16/path = NodePath("wisp:modulate")
+tracks/16/interp = 1
+tracks/16/loop_wrap = true
+tracks/16/keys = {
+"times": PackedFloat32Array(0.0666667, 1.06667, 7.9),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Color(0.868169, 0.856559, 0.832084, 0), Color(0.8514, 0.86, 0.85785, 0.4), Color(0.857673, 0.85794, 0.851732, 0)]
+}
+tracks/17/type = "value"
+tracks/17/imported = false
+tracks/17/enabled = true
+tracks/17/path = NodePath("wisp:scale")
+tracks/17/interp = 1
+tracks/17/loop_wrap = true
+tracks/17/keys = {
+"times": PackedFloat32Array(0.0333333, 1.4, 8),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(0, 0), Vector2(1.25, 1.25), Vector2(0.5, 0.5)]
+}
+tracks/18/type = "value"
+tracks/18/imported = false
+tracks/18/enabled = true
+tracks/18/path = NodePath("wisp:visible")
+tracks/18/interp = 1
+tracks/18/loop_wrap = true
+tracks/18/keys = {
+"times": PackedFloat32Array(0, 0.166667, 8.03333),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [false, true, false]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_evbnl"]
@@ -473,6 +570,42 @@ animations = [{
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_yj1hm"]
 size = Vector2(16, 16)
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_s3v06"]
+atlas = ExtResource("5_2ekrv")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_q0m78"]
+atlas = ExtResource("5_2ekrv")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1uqfq"]
+atlas = ExtResource("5_2ekrv")
+region = Rect2(64, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_j63pv"]
+atlas = ExtResource("5_2ekrv")
+region = Rect2(96, 0, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_d8ebk"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_s3v06")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_q0m78")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1uqfq")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_j63pv")
+}],
+"loop": true,
+"name": &"default",
+"speed": 9.0
+}]
+
 [node name="Node2D" type="Node2D"]
 script = ExtResource("1_6nsb8")
 
@@ -514,5 +647,11 @@ color = Color(0.913725, 0.780392, 0.529412, 1)
 energy = 0.0
 texture = ExtResource("3_xvggm")
 texture_scale = 0.25
+
+[node name="wisp" type="AnimatedSprite2D" parent="."]
+modulate = Color(0.91, 0.905147, 0.9009, 0.254902)
+sprite_frames = SubResource("SpriteFrames_d8ebk")
+autoplay = "default"
+frame_progress = 0.976585
 
 [connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]

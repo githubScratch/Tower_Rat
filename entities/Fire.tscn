@@ -1,6 +1,6 @@
 [gd_scene load_steps=168 format=3 uid="uid://dri44ivdp0iu5"]
 
-[ext_resource type="Script" path="res://fire.gd" id="1_h3st4"]
+[ext_resource type="Script" path="res://entities/fire.gd" id="1_h3st4"]
 [ext_resource type="Texture2D" uid="uid://bgfb27ghdt4wy" path="res://vfx/2d_lights_and_shadows_neutral_point_light.webp" id="2_8lkl3"]
 [ext_resource type="Shader" path="res://old/testShader.gdshader" id="3_5fong"]
 [ext_resource type="AudioStream" uid="uid://4r47aos532w0" path="res://sfx/Retro Ambience 02.wav" id="3_faq30"]

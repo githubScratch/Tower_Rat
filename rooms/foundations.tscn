@@ -1,23 +1,23 @@
 [gd_scene load_steps=114 format=4 uid="uid://bxfkeuoyy8c30"]
 
 [ext_resource type="Texture2D" uid="uid://b60w5lubcj66p" path="res://sprites/Dungeon Tile Set.png" id="1_4di43"]
-[ext_resource type="Script" path="res://foundations.gd" id="1_66joc"]
-[ext_resource type="PackedScene" uid="uid://be4uay3rlk1re" path="res://player.tscn" id="1_fv77l"]
-[ext_resource type="PackedScene" uid="uid://cxs67dmbmny05" path="res://room1.tscn" id="2_wfnty"]
-[ext_resource type="PackedScene" uid="uid://b101gi4am63y2" path="res://platform_moving.tscn" id="4_5ruv7"]
-[ext_resource type="PackedScene" uid="uid://dri44ivdp0iu5" path="res://Fire.tscn" id="4_bft5d"]
-[ext_resource type="PackedScene" uid="uid://dsy7t7ginhl5k" path="res://hanging_cage.tscn" id="4_frgw5"]
+[ext_resource type="Script" path="res://rooms/foundations.gd" id="1_66joc"]
+[ext_resource type="PackedScene" uid="uid://be4uay3rlk1re" path="res://core components/player.tscn" id="1_fv77l"]
+[ext_resource type="PackedScene" uid="uid://cxs67dmbmny05" path="res://rooms/room1.tscn" id="2_wfnty"]
+[ext_resource type="PackedScene" uid="uid://b101gi4am63y2" path="res://entities/platform_moving.tscn" id="4_5ruv7"]
+[ext_resource type="PackedScene" uid="uid://dri44ivdp0iu5" path="res://entities/Fire.tscn" id="4_bft5d"]
+[ext_resource type="PackedScene" uid="uid://dsy7t7ginhl5k" path="res://entities/hanging_cage.tscn" id="4_frgw5"]
 [ext_resource type="Texture2D" uid="uid://bkn2do7ckocud" path="res://sprites/other_and_decorative.png" id="5_st1sw"]
-[ext_resource type="PackedScene" uid="uid://dult5fdl2iu7i" path="res://room2.tscn" id="7_f62fj"]
+[ext_resource type="PackedScene" uid="uid://dult5fdl2iu7i" path="res://rooms/room2.tscn" id="7_f62fj"]
 [ext_resource type="Texture2D" uid="uid://cu2vqi0hmlbwq" path="res://vfx/75.png" id="9_qpbr8"]
 [ext_resource type="AudioStream" uid="uid://d0jewmixyu78c" path="res://sfx/Retro Negative Short 07.wav" id="9_s26ib"]
-[ext_resource type="PackedScene" uid="uid://cuyob46rqlv0q" path="res://room3.tscn" id="9_woqgn"]
+[ext_resource type="PackedScene" uid="uid://cuyob46rqlv0q" path="res://rooms/room3.tscn" id="9_woqgn"]
 [ext_resource type="AudioStream" uid="uid://c5it86kuasypm" path="res://sfx/Retro Event UI StereoUP 01.wav" id="10_tcuds"]
-[ext_resource type="PackedScene" uid="uid://16pf5n2cdgjl" path="res://room4.tscn" id="10_v8j1m"]
+[ext_resource type="PackedScene" uid="uid://16pf5n2cdgjl" path="res://rooms/room4.tscn" id="10_v8j1m"]
 [ext_resource type="Texture2D" uid="uid://cy2eqqnsqka6h" path="res://sprites/anim_lights.png" id="12_57443"]
 [ext_resource type="Texture2D" uid="uid://dcartpxmshafu" path="res://vfx/Eletric A-Sheet.png" id="12_s02lx"]
 [ext_resource type="Texture2D" uid="uid://bgfb27ghdt4wy" path="res://vfx/2d_lights_and_shadows_neutral_point_light.webp" id="13_lil6q"]
-[ext_resource type="PackedScene" uid="uid://52x4aqu36q2b" path="res://scroll.tscn" id="18_2w16r"]
+[ext_resource type="PackedScene" uid="uid://52x4aqu36q2b" path="res://entities/scroll.tscn" id="18_2w16r"]
 
 [sub_resource type="Environment" id="Environment_s31mn"]
 background_mode = 3
@@ -406,7 +406,7 @@ polygon = PackedVector2Array(-8, -8, -1.625, -8, -1.625, -3.375, 3.375, -3.25, 3
 [sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_gjgww"]
 polygon = PackedVector2Array(-8, -8, 8, -8, -8, 8)
 
-[sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_eppm8"]
+[sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_xh6fq"]
 polygon = PackedVector2Array(-3.875, -8, 3.375, -8, 2, -1.5, 6.875, 3.75, 6.75, 5.875, 5, 8, -4.75, 8, -6.625, 5.625, -6.625, 3.5, -2.375, -1.75)
 
 [sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_h364a"]
@@ -424,7 +424,7 @@ polygon = PackedVector2Array(-8, 6.125, 8, 6.125, 8, 8, -8, 8)
 [sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_6wji3"]
 polygon = PackedVector2Array(-8, -8, -4.5, -8, -3.375, -6.125, -5.375, -4, -8, -4)
 
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_jlg5y"]
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_6f7o6"]
 texture = ExtResource("1_4di43")
 1:1/0 = 0
 1:1/0/terrain_set = 0
@@ -672,7 +672,7 @@ texture = ExtResource("1_4di43")
 3:6/0/terrains_peering_bit/left_side = 1
 3:6/0/terrains_peering_bit/top_left_corner = 1
 6:6/0 = 0
-6:6/0/occlusion_layer_0/polygon = SubResource("OccluderPolygon2D_eppm8")
+6:6/0/occlusion_layer_0/polygon = SubResource("OccluderPolygon2D_xh6fq")
 6:6/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
 7:6/0 = 0
 7:6/0/occlusion_layer_0/polygon = SubResource("OccluderPolygon2D_ebkk8")
@@ -850,7 +850,7 @@ terrain_set_0/terrain_0/name = "Terrain 0"
 terrain_set_0/terrain_0/color = Color(0.5, 0.34375, 0.25, 1)
 terrain_set_0/terrain_1/name = "Terrain 1"
 terrain_set_0/terrain_1/color = Color(0.5, 0.4375, 0.25, 1)
-sources/0 = SubResource("TileSetAtlasSource_jlg5y")
+sources/0 = SubResource("TileSetAtlasSource_6f7o6")
 
 [sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_ws3nn"]
 polygon = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
@@ -888,7 +888,7 @@ polygon = PackedVector2Array(-8, -8, -4.25, -8, -3.125, -5.5, -5.125, -3, -8, -3
 [sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_7jaov"]
 polygon = PackedVector2Array(8, -8, 8, -3.75, 5.5, -3.875, 2.875, -5.75, 4.375, -8)
 
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_dhwg7"]
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_isifl"]
 texture = ExtResource("1_4di43")
 1:1/0 = 0
 2:1/0 = 0
@@ -1053,7 +1053,7 @@ texture = ExtResource("1_4di43")
 11:12/0/physics_layer_0/polygon_0/points = PackedVector2Array(-3.875, -8, 3.625, -8, 3.5, -6.625, -4, -6.875)
 11:12/0/physics_layer_0/polygon_0/one_way = true
 12:12/0 = 0
-12:12/0/occlusion_layer_0/polygon = SubResource("OccluderPolygon2D_eppm8")
+12:12/0/occlusion_layer_0/polygon = SubResource("OccluderPolygon2D_xh6fq")
 12:12/0/physics_layer_0/polygon_0/points = PackedVector2Array(-4, -8, 4, -8, 3.75, -7, -3.875, -6.75)
 12:12/0/physics_layer_0/polygon_0/one_way = true
 2:13/0 = 0
@@ -1094,9 +1094,9 @@ texture = ExtResource("1_4di43")
 occlusion_layer_0/light_mask = 1
 physics_layer_0/collision_layer = 2
 physics_layer_0/collision_mask = 0
-sources/0 = SubResource("TileSetAtlasSource_dhwg7")
+sources/0 = SubResource("TileSetAtlasSource_isifl")
 
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_64mos"]
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_aqtk0"]
 texture = ExtResource("1_4di43")
 1:1/0 = 0
 2:1/0 = 0
@@ -1234,12 +1234,12 @@ texture = ExtResource("1_4di43")
 2:6/0 = 0
 
 [sub_resource type="TileSet" id="TileSet_43hb5"]
-sources/0 = SubResource("TileSetAtlasSource_64mos")
+sources/0 = SubResource("TileSetAtlasSource_aqtk0")
 
 [sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_xg7wg"]
 polygon = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
 
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_4ltrj"]
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_xlptl"]
 texture = ExtResource("1_4di43")
 1:1/0 = 0
 1:1/0/occlusion_layer_0/polygon = SubResource("OccluderPolygon2D_xg7wg")
@@ -1453,9 +1453,9 @@ texture = ExtResource("1_4di43")
 occlusion_layer_0/light_mask = 0
 physics_layer_0/collision_layer = 1
 physics_layer_0/collision_mask = 16
-sources/0 = SubResource("TileSetAtlasSource_4ltrj")
+sources/0 = SubResource("TileSetAtlasSource_xlptl")
 
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_mfenp"]
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_34mr8"]
 texture = ExtResource("5_st1sw")
 1:1/0 = 0
 2:1/0 = 0
@@ -1994,9 +1994,9 @@ texture = ExtResource("5_st1sw")
 
 [sub_resource type="TileSet" id="TileSet_7maf0"]
 physics_layer_0/collision_layer = 1
-sources/0 = SubResource("TileSetAtlasSource_mfenp")
+sources/0 = SubResource("TileSetAtlasSource_34mr8")
 
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_pjwmp"]
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_c3ix0"]
 texture = ExtResource("1_4di43")
 1:1/0 = 0
 2:1/0 = 0
@@ -2132,7 +2132,7 @@ texture = ExtResource("1_4di43")
 12:15/0 = 0
 
 [sub_resource type="TileSet" id="TileSet_cpcop"]
-sources/0 = SubResource("TileSetAtlasSource_pjwmp")
+sources/0 = SubResource("TileSetAtlasSource_c3ix0")
 
 [sub_resource type="Animation" id="Animation_mtjyp"]
 length = 0.001
@@ -3364,7 +3364,7 @@ tile_set = SubResource("TileSet_cpcop")
 [node name="Level1" parent="Levels" instance=ExtResource("2_wfnty")]
 z_index = -1
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="Levels/Level1"]
+[node name="AnimationPlayer2" type="AnimationPlayer" parent="Levels/Level1"]
 libraries = {
 "": SubResource("AnimationLibrary_u0qw0")
 }
@@ -3375,7 +3375,7 @@ speed_scale = 0.15
 z_index = -1
 position = Vector2(-192, 320)
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="Levels/Level2"]
+[node name="AnimationPlayer2" type="AnimationPlayer" parent="Levels/Level2"]
 libraries = {
 "": SubResource("AnimationLibrary_x5iiv")
 }
@@ -3386,7 +3386,7 @@ speed_scale = 0.25
 z_index = -1
 position = Vector2(0, 640)
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="Levels/level3"]
+[node name="AnimationPlayer2" type="AnimationPlayer" parent="Levels/level3"]
 libraries = {
 "": SubResource("AnimationLibrary_xkawm")
 }
@@ -3397,7 +3397,7 @@ speed_scale = 0.35
 z_index = -1
 position = Vector2(-192, 960)
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="Levels/level4"]
+[node name="AnimationPlayer2" type="AnimationPlayer" parent="Levels/level4"]
 libraries = {
 "": SubResource("AnimationLibrary_suqax")
 }

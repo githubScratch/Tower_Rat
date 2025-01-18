@@ -1,0 +1,27 @@
+[gd_scene load_steps=3 format=3 uid="uid://dtfg4xij6hsg6"]
+
+[ext_resource type="Script" path="res://core components/hud.gd" id="1_y3spv"]
+[ext_resource type="FontFile" uid="uid://cqqwligvnvq1" path="res://core components/alagard.ttf" id="2_pchvl"]
+
+[node name="CanvasLayer" type="CanvasLayer"]
+script = ExtResource("1_y3spv")
+
+[node name="ScoreLabel" type="Label" parent="."]
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -78.0
+offset_top = 4.0
+offset_right = -4.0
+offset_bottom = 19.0
+grow_horizontal = 0
+theme_override_colors/font_color = Color(0.58776, 0.3024, 0.72, 1)
+theme_override_colors/font_shadow_color = Color(0.254333, 0.126, 0.28, 1)
+theme_override_constants/shadow_offset_x = 0
+theme_override_constants/shadow_offset_y = -2
+theme_override_constants/outline_size = 0
+theme_override_constants/shadow_outline_size = 1
+theme_override_fonts/font = ExtResource("2_pchvl")
+theme_override_font_sizes/font_size = 15
+text = "Descent: 0
+"

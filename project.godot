@@ -11,13 +11,13 @@ config_version=5
 [application]
 
 config/name="Tower Rat"
-run/main_scene="res://foundations.tscn"
+run/main_scene="res://rooms/foundations.tscn"
 config/features=PackedStringArray("4.3", "Mobile")
 config/icon="res://icon.svg"
 
 [autoload]
 
-GameManager="*res://game_manager.gd"
+GameManager="*res://core components/game_manager.gd"
 
 [display]
 

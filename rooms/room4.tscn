@@ -1,10 +1,10 @@
 [gd_scene load_steps=56 format=4 uid="uid://16pf5n2cdgjl"]
 
 [ext_resource type="Texture2D" uid="uid://b60w5lubcj66p" path="res://sprites/Dungeon Tile Set.png" id="1_2juyi"]
-[ext_resource type="Script" path="res://room_1.gd" id="1_y3xa7"]
+[ext_resource type="Script" path="res://rooms/room_1.gd" id="1_y3xa7"]
 [ext_resource type="Texture2D" uid="uid://cy2eqqnsqka6h" path="res://sprites/anim_lights.png" id="2_oc1at"]
 [ext_resource type="Texture2D" uid="uid://bgfb27ghdt4wy" path="res://vfx/2d_lights_and_shadows_neutral_point_light.webp" id="3_ind8f"]
-[ext_resource type="PackedScene" uid="uid://52x4aqu36q2b" path="res://scroll.tscn" id="5_m1fe0"]
+[ext_resource type="PackedScene" uid="uid://52x4aqu36q2b" path="res://entities/scroll.tscn" id="5_m1fe0"]
 
 [sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_ebkk8"]
 polygon = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)

@@ -479,8 +479,8 @@ func _physics_process(delta):
 		# Check if pressing toward wall (wall_normal.x is 1 for right wall, -1 for left wall)
 		
 		#control whether input is needed to use wall_sliding by commenting one of the following out
-		#var pressing_toward_wall = (wall_normal.x > 0 and leftHold) or (wall_normal.x < 0 and rightHold)
-		var pressing_toward_wall = (wall_normal.x > 0) or (wall_normal.x < 0)
+		var pressing_toward_wall = (wall_normal.x > 0 and leftHold and !downHold) or (wall_normal.x < 0 and rightHold and !downHold)
+		#var pressing_toward_wall = (wall_normal.x > 0) or (wall_normal.x < 0)
 	
 		if pressing_toward_wall:
 			wall_slide_buffer_timer = wall_slide_buffer_time

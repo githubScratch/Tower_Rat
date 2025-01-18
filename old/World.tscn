@@ -1,11 +1,11 @@
 [gd_scene load_steps=57 format=4 uid="uid://cul4def3dldg0"]
 
 [ext_resource type="Script" path="res://old/world.gd" id="1_tjm7w"]
-[ext_resource type="PackedScene" uid="uid://be4uay3rlk1re" path="res://player.tscn" id="2_or717"]
+[ext_resource type="PackedScene" uid="uid://be4uay3rlk1re" path="res://core components/player.tscn" id="2_or717"]
 [ext_resource type="Texture2D" uid="uid://b60w5lubcj66p" path="res://sprites/Dungeon Tile Set.png" id="3_jrntf"]
 [ext_resource type="Texture2D" uid="uid://bgfb27ghdt4wy" path="res://vfx/2d_lights_and_shadows_neutral_point_light.webp" id="3_p3bs3"]
-[ext_resource type="PackedScene" uid="uid://dri44ivdp0iu5" path="res://Fire.tscn" id="5_rb31a"]
-[ext_resource type="PackedScene" uid="uid://b101gi4am63y2" path="res://platform_moving.tscn" id="7_mum24"]
+[ext_resource type="PackedScene" uid="uid://dri44ivdp0iu5" path="res://entities/Fire.tscn" id="5_rb31a"]
+[ext_resource type="PackedScene" uid="uid://b101gi4am63y2" path="res://entities/platform_moving.tscn" id="7_mum24"]
 
 [sub_resource type="Environment" id="Environment_dg4fr"]
 background_mode = 3
