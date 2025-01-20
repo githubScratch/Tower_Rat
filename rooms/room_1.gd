@@ -4,9 +4,9 @@ var velocity: Vector2 = Vector2.ZERO
 var previous_position: Vector2 = Vector2.ZERO
 
 
-@export var pan_distance: float = -200
+@export var pan_distance: float = -240
 @export var pan_duration: float = 12
-@export var pan_delay: float = 4
+@export var pan_delay: float = 0
 @export var start_with_delay: bool = false
 
 func _ready():
