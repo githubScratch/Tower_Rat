@@ -4,8 +4,8 @@ var velocity: Vector2 = Vector2.ZERO
 var previous_position: Vector2 = Vector2.ZERO
 
 
-@export var pan_distance: float = -240
-@export var pan_duration: float = 12
+@export var pan_distance: float = -896
+@export var pan_duration: float = 30
 @export var pan_delay: float = 0
 @export var start_with_delay: bool = false
 
@@ -23,10 +23,10 @@ func _ready():
 	var tween = create_tween()
 
 	# Tween to the target position
-	tween.tween_property(self, "position", target_position, pan_duration / 2)
+	tween.tween_property(self, "position", target_position, pan_duration / 1)
 
 	# Add a callback to tween back after reaching the target
-	tween.tween_property(self, "position", start_position, pan_duration / 2).set_delay(pan_duration / 2)
+	tween.tween_property(self, "position", start_position, pan_duration / 1).set_delay(3)
 
 	# Set it to loop indefinitely
 	tween.set_loops()

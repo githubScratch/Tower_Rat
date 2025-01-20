@@ -1,7 +1,7 @@
 # FireHazard.gd
 extends Area2D
 
-@export var descent_speed: float = 75.0  # Pixels per second
+@export var descent_speed: float = 65.0  # Pixels per second
 @export var damage_amount: int = 1
 
 var light_data = []
@@ -18,6 +18,10 @@ func _ready():
 				"base_intensity": light.energy
 			})
 
+	await get_tree().create_timer(25).timeout
+	descent_speed += 20
+	await get_tree().create_timer(25).timeout
+	descent_speed += 20
 	await get_tree().create_timer(25).timeout
 	descent_speed += 20
 	await get_tree().create_timer(25).timeout
