@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" path="res://entities/scroll.gd" id="1_6nsb8"]
 [ext_resource type="Texture2D" uid="uid://cv84f5r4j608q" path="res://sprites/scroll2 (2).png" id="2_1d4pe"]
-[ext_resource type="Texture2D" uid="uid://bgfb27ghdt4wy" path="res://vfx/2d_lights_and_shadows_neutral_point_light.webp" id="3_xvggm"]
+[ext_resource type="Texture2D" uid="uid://ci01egenb6pwg" path="res://vfx/pngegg.png" id="3_s6bqc"]
 [ext_resource type="AudioStream" uid="uid://cua6r6468v5eu" path="res://sfx/Retro Magic Protection 25.wav" id="4_68gu8"]
 [ext_resource type="Texture2D" uid="uid://ciirqdqbdame4" path="res://sprites/7a.png" id="5_2ekrv"]
 
@@ -236,10 +236,22 @@ tracks/18/keys = {
 "update": 1,
 "values": [true]
 }
+tracks/19/type = "value"
+tracks/19/imported = false
+tracks/19/enabled = true
+tracks/19/path = NodePath("wisp:animation")
+tracks/19/interp = 1
+tracks/19/loop_wrap = true
+tracks/19/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [&"default"]
+}
 
 [sub_resource type="Animation" id="Animation_4boep"]
 resource_name = "rip"
-length = 8.0
+length = 12.0
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -331,7 +343,7 @@ tracks/7/path = NodePath("cantripLight:offset")
 tracks/7/interp = 1
 tracks/7/loop_wrap = true
 tracks/7/keys = {
-"times": PackedFloat32Array(0, 2.86667, 8),
+"times": PackedFloat32Array(0, 2.86667, 8.03333),
 "transitions": PackedFloat32Array(0.535887, 0.31864, 1),
 "update": 0,
 "values": [Vector2(0, 0), Vector2(0, 200), Vector2(0, 250)]
@@ -355,7 +367,7 @@ tracks/9/path = NodePath("cantripLight:energy")
 tracks/9/interp = 1
 tracks/9/loop_wrap = true
 tracks/9/keys = {
-"times": PackedFloat32Array(0, 0.633333, 4.5, 7.93333),
+"times": PackedFloat32Array(0, 0.633333, 4.5, 11.8333),
 "transitions": PackedFloat32Array(1, 1, 1, 1),
 "update": 0,
 "values": [0.0, 1.0, 4.0, 0.0]
@@ -367,7 +379,7 @@ tracks/10/path = NodePath("cantripLight:texture_scale")
 tracks/10/interp = 1
 tracks/10/loop_wrap = true
 tracks/10/keys = {
-"times": PackedFloat32Array(0.0333333, 0.633333, 4.86667, 7.93333),
+"times": PackedFloat32Array(0.0333333, 0.633333, 4.86667, 11.7667),
 "transitions": PackedFloat32Array(1, 1, 1, 1),
 "update": 0,
 "values": [0.25, 0.5, 2.0, 0.25]
@@ -403,7 +415,7 @@ tracks/13/path = NodePath("lesserLight:energy")
 tracks/13/interp = 1
 tracks/13/loop_wrap = true
 tracks/13/keys = {
-"times": PackedFloat32Array(0.0333333, 0.6, 4.53333, 7.96667),
+"times": PackedFloat32Array(0.0333333, 0.6, 4.53333, 11.9),
 "transitions": PackedFloat32Array(1, 1, 1, 1),
 "update": 0,
 "values": [0.0, 1.0, 2.0, 0.0]
@@ -427,7 +439,7 @@ tracks/15/path = NodePath("wisp:offset")
 tracks/15/interp = 1
 tracks/15/loop_wrap = true
 tracks/15/keys = {
-"times": PackedFloat32Array(0, 4.13333, 7.9),
+"times": PackedFloat32Array(0, 4.13333, 7.96667),
 "transitions": PackedFloat32Array(1, 1, 1),
 "update": 0,
 "values": [Vector2(0, 0), Vector2(0, 200), Vector2(0, 400)]
@@ -439,7 +451,7 @@ tracks/16/path = NodePath("wisp:modulate")
 tracks/16/interp = 1
 tracks/16/loop_wrap = true
 tracks/16/keys = {
-"times": PackedFloat32Array(0.0666667, 1.06667, 7.9),
+"times": PackedFloat32Array(0.0666667, 1.06667, 11.7333),
 "transitions": PackedFloat32Array(1, 1, 1),
 "update": 0,
 "values": [Color(0.868169, 0.856559, 0.832084, 0), Color(0.8514, 0.86, 0.85785, 0.4), Color(0.857673, 0.85794, 0.851732, 0)]
@@ -451,7 +463,7 @@ tracks/17/path = NodePath("wisp:scale")
 tracks/17/interp = 1
 tracks/17/loop_wrap = true
 tracks/17/keys = {
-"times": PackedFloat32Array(0.0333333, 1.4, 8),
+"times": PackedFloat32Array(0.0333333, 1.4, 11.8),
 "transitions": PackedFloat32Array(1, 1, 1),
 "update": 0,
 "values": [Vector2(0, 0), Vector2(1.25, 1.25), Vector2(0.5, 0.5)]
@@ -463,10 +475,22 @@ tracks/18/path = NodePath("wisp:visible")
 tracks/18/interp = 1
 tracks/18/loop_wrap = true
 tracks/18/keys = {
-"times": PackedFloat32Array(0, 0.166667, 8.03333),
+"times": PackedFloat32Array(0, 0.166667, 11.6333),
 "transitions": PackedFloat32Array(1, 1, 1),
 "update": 1,
 "values": [false, true, false]
+}
+tracks/19/type = "value"
+tracks/19/imported = false
+tracks/19/enabled = true
+tracks/19/path = NodePath("wisp:animation")
+tracks/19/interp = 1
+tracks/19/loop_wrap = true
+tracks/19/keys = {
+"times": PackedFloat32Array(0.0333333),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [&"default"]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_evbnl"]
@@ -627,7 +651,7 @@ shape = SubResource("RectangleShape2D_yj1hm")
 [node name="PointLight2D" type="PointLight2D" parent="."]
 color = Color(0.482147, 0.683228, 0.908688, 1)
 energy = 0.25
-texture = ExtResource("3_xvggm")
+texture = ExtResource("3_s6bqc")
 texture_scale = 0.1
 
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
@@ -639,20 +663,20 @@ pitch_scale = 0.5
 enabled = false
 color = Color(0.915332, 0.782, 0.528946, 1)
 energy = 0.25
-texture = ExtResource("3_xvggm")
+texture = ExtResource("3_s6bqc")
 texture_scale = 0.25
 
 [node name="lesserLight" type="PointLight2D" parent="."]
 enabled = false
 color = Color(0.913725, 0.780392, 0.529412, 1)
 energy = 0.0
-texture = ExtResource("3_xvggm")
+texture = ExtResource("3_s6bqc")
 texture_scale = 0.25
 
 [node name="wisp" type="AnimatedSprite2D" parent="."]
 modulate = Color(0.91, 0.905147, 0.9009, 0.254902)
 sprite_frames = SubResource("SpriteFrames_d8ebk")
 autoplay = "default"
-frame_progress = 0.976585
+frame_progress = 0.457872
 
 [connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]

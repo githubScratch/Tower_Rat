@@ -956,3 +956,9 @@ amount = 255
 process_material = SubResource("ParticleProcessMaterial_jse3g")
 texture = ExtResource("10_s6fje")
 lifetime = 2.0
+
+[node name="PointLight2D" type="PointLight2D" parent="."]
+color = Color(0.501632, 0.457075, 0.751113, 1)
+energy = 0.25
+texture = ExtResource("5_27lf8")
+texture_scale = 0.5
