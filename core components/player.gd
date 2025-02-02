@@ -327,7 +327,7 @@ func _process(_delta):
 		anim.speed_scale = 1
 		anim.play("jump")
 		
-	if velocity.y > 40 and falling and !dashing and !crouching and !is_dead:
+	if velocity.y > 40 and falling and !dashing and !crouching and !is_dead and wall_slide_buffer_time <= 0:
 		anim.speed_scale = 1
 		anim.play("falling")
 	
@@ -415,9 +415,15 @@ func _physics_process(delta):
 	#Crush Check
 	if test_move(transform, Vector2.ZERO) and not is_dead:
 		# We can't move at all - we're crushed
-		await get_tree().create_timer(0.5).timeout
-		if test_move(transform, Vector2.ZERO) and not is_dead:
-			die_fire()
+		await get_tree().create_timer(0.25).timeout
+		var can_move_up = !test_move(transform, Vector2(0, -1))
+		var can_move_down = !test_move(transform, Vector2(0, 1))
+		var can_move_left = !test_move(transform, Vector2(-1, 0))
+		var can_move_right = !test_move(transform, Vector2(1, 0))
+	
+	# Only die if we can't move in opposite directions (truly crushed)
+		if (!can_move_up && !can_move_down) || (!can_move_left && !can_move_right):
+			die_crush()
 
 
 	#INFO Left and Right Movement
@@ -519,7 +525,7 @@ func _physics_process(delta):
 		var wall_normal = get_wall_normal()
 		# Check if pressing toward wall (wall_normal.x is 1 for right wall, -1 for left wall)
 		
-		#control whether input is needed to use wall_sliding by commenting one of the following out
+		#######control whether input is needed to use wall_sliding by commenting one of the following out
 		var pressing_toward_wall = (wall_normal.x > 0 and leftHold and !downHold) or (wall_normal.x < 0 and rightHold and !downHold)
 		#var pressing_toward_wall = (wall_normal.x > 0) or (wall_normal.x < 0)
 	
@@ -552,6 +558,7 @@ func _physics_process(delta):
 			rat_slide.stream_paused = true
 		else:
 		# Buffer expired or wasn't wall sliding
+			await get_tree().create_timer(groundPoundPause).timeout
 			was_wall_sliding = false
 			appliedTerminalVelocity = terminalVelocity
 			appliedGravity = gravityScale if velocity.y <= 0 else gravityScale * descendingGravityFactor
@@ -849,3 +856,13 @@ func die_spikes():
 		#set_process_input(false)
 		anim.play("die")
 		
+func die_crush():
+	dead_light.visible = true
+	die_spikes_sfx.play()
+	if !is_dead:
+		dead_light.visible = true
+		animation_player.play("dead_zoom")
+		velocity.x = 0
+		is_dead = true
+		set_process_input(false)
+		anim.play("die")

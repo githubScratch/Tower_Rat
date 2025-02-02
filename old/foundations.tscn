@@ -1,7 +1,7 @@
 [gd_scene load_steps=114 format=4 uid="uid://bxfkeuoyy8c30"]
 
 [ext_resource type="Texture2D" uid="uid://b60w5lubcj66p" path="res://sprites/Dungeon Tile Set.png" id="1_4di43"]
-[ext_resource type="Script" path="res://rooms/foundations.gd" id="1_66joc"]
+[ext_resource type="Script" path="res://old/foundations.gd" id="1_66joc"]
 [ext_resource type="PackedScene" uid="uid://be4uay3rlk1re" path="res://core components/player.tscn" id="1_fv77l"]
 [ext_resource type="PackedScene" uid="uid://cxs67dmbmny05" path="res://rooms/room1.tscn" id="2_wfnty"]
 [ext_resource type="PackedScene" uid="uid://b101gi4am63y2" path="res://entities/platform_moving.tscn" id="4_5ruv7"]
