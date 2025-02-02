@@ -1809,6 +1809,7 @@ position = Vector2(-88, -240)
 [node name="HUD" parent="." instance=ExtResource("10_8yw0t")]
 
 [node name="CanvasModulate" type="CanvasModulate" parent="."]
+visible = false
 light_mask = 2
 visibility_layer = 2
 z_index = 3

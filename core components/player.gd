@@ -17,7 +17,11 @@ class_name PlatformerController2D
 @onready var die_spikes_sfx: AudioStreamPlayer2D = $dieSpikesSFX
 @onready var rat_walk: AudioStreamPlayer2D = $ratWalk
 @onready var rat_dash: AudioStreamPlayer2D = $ratDash
+@onready var rat_impact: AudioStreamPlayer2D = $ratImpact
+@onready var rat_slide: AudioStreamPlayer2D = $ratSlide
+
 @onready var dead_particles: GPUParticles2D = $deadParticles
+@export var max_platform_velocity: float = 30.0  # Adjust as needed
 
 #INFO HORIZONTAL MOVEMENT 
 @export_category("L/R Movement")
@@ -198,9 +202,14 @@ var twirlTap
 
 var platform_velocity: Vector2 = Vector2.ZERO
 
+var motion_previous = Vector2()
+var hit_the_ground = false
+
+
 func _ready():
 	dead_light.visible = false
 	dead_particles.emitting = false
+	rat_slide.stream_paused = true
 	var count = GameManager.get_reset_count()
 	#dead_particles.amount = max(1, count)
 	print("Reset count: ", count)
@@ -279,6 +288,7 @@ func _updateData():
 
 func _process(_delta):
 	platform_velocity = Vector2.ZERO
+	
 	#INFO animations
 	#directions
 	if is_on_wall() and !is_on_floor() and latch and wallLatching and ((wallLatchingModifer and latchHold) or !wallLatchingModifer):
@@ -295,20 +305,20 @@ func _process(_delta):
 	
 	#run
 	if run and idle and !dashing and !crouching and !walk and !is_dead:
-		if abs(velocity.x) > 0.1 and is_on_floor() and !is_on_wall():
+		if abs(velocity.x) > 30 and is_on_floor() and !is_on_wall():
 			anim.speed_scale = abs(velocity.x / 150)
 			anim.play("run")
-		elif abs(velocity.x) < 0.1 and is_on_floor():
+		elif abs(velocity.x) < 30 and is_on_floor():
 			anim.speed_scale = 1
 			anim.play("idle")
 	elif run and idle and walk and !dashing and !crouching and !is_dead:
-		if abs(velocity.x) > 0.1 and is_on_floor() and !is_on_wall():
-			anim.speed_scale = abs(velocity.x / 150)
+		if abs(velocity.x) > 30.0 and is_on_floor() and !is_on_wall():
+			#anim.speed_scale = abs(velocity.x / 150)
 			if abs(velocity.x) < (maxSpeedLock):
-				anim.play("walk")
+				anim.play("run")
 			else:
 				anim.play("run")
-		elif abs(velocity.x) < 0.1 and is_on_floor():
+		elif abs(velocity.x) < 30.0 and is_on_floor():
 			anim.speed_scale = 1
 			anim.play("idle")
 		
@@ -334,7 +344,10 @@ func _process(_delta):
 		if is_on_wall() and velocity.y > 0 and slide and anim.animation != "slide" and wallSliding != 1:
 			anim.speed_scale = 1
 			anim.play("slide")
-			
+			rat_slide.stream_paused = false
+		else:
+			rat_slide.stream_paused = true
+
 		#dash
 		if dashing and !is_dead:
 			anim.speed_scale = 1
@@ -378,9 +391,37 @@ func _physics_process(delta):
 	downTap = Input.is_action_just_pressed("down")
 	twirlTap = Input.is_action_just_pressed("twirl")
 	
+	#Squash & Stretch
 	
+	if not is_on_floor():
+		if abs(velocity.y) > 30.0:
+			$SpriteHolder.scale.y = 1.75
+			$SpriteHolder.scale.x = 0.75
+			hit_the_ground = false
+
+	if not hit_the_ground and is_on_floor():
+		hit_the_ground = true
+		$SpriteHolder.scale.y = 0.6
+		$SpriteHolder.scale.x = 1.75
+		rat_impact.pitch_scale = randf_range(1.0, 5.0)
+		rat_impact.play()
+
+
+	
+	$SpriteHolder.scale.x = lerpf($SpriteHolder.scale.x, 1, 1 - pow(0.01, delta))
+	$SpriteHolder.scale.y = lerpf($SpriteHolder.scale.y, 1, 1 - pow(0.01, delta))
+
+
+	#Crush Check
+	if test_move(transform, Vector2.ZERO) and not is_dead:
+		# We can't move at all - we're crushed
+		await get_tree().create_timer(0.5).timeout
+		if test_move(transform, Vector2.ZERO) and not is_dead:
+			die_fire()
+
+
 	#INFO Left and Right Movement
-	
+
 	if rightHold and leftHold and movementInputMonitoring and !is_dead:
 		if !instantStop:
 			_decelerate(delta, false)
@@ -487,6 +528,7 @@ func _physics_process(delta):
 			was_wall_sliding = true
 			appliedTerminalVelocity = terminalVelocity / wallSliding
 			anim.play("slide")
+			rat_slide.stream_paused = false
 			if wallLatching and ((wallLatchingModifer and latchHold) or !wallLatchingModifer):
 				appliedGravity = 0
 			
@@ -507,6 +549,7 @@ func _physics_process(delta):
 			appliedTerminalVelocity = terminalVelocity
 			appliedGravity = gravityScale if velocity.y <= 0 else gravityScale * descendingGravityFactor
 			wall_slide_buffer_timer -= delta  # Decrease buffer timer
+			rat_slide.stream_paused = true
 		else:
 		# Buffer expired or wasn't wall sliding
 			was_wall_sliding = false
@@ -654,8 +697,22 @@ func _physics_process(delta):
 			if platform and platform is Node2D:
 				if "velocity" in platform:
 					platform_velocity = platform.velocity
+					print("Platform Velocity: ", platform_velocity)  # Debug print
+					print("Player Velocity: ", velocity)
 					break
-	#velocity += platform_velocity
+
+	var input_velocity = Vector2.ZERO
+	if rightHold and movementInputMonitoring.x and !is_dead:
+		input_velocity.x += acceleration * delta
+	elif leftHold and movementInputMonitoring.y and !is_dead:
+		input_velocity.x -= acceleration * delta
+
+	platform_velocity.x = clamp(platform_velocity.x, -max_platform_velocity, max_platform_velocity)
+
+	if is_on_floor() and platform_velocity != Vector2.ZERO:
+		velocity.x = platform_velocity.x
+		# Apply player input velocity
+		velocity.x += input_velocity.x * 8
 	move_and_slide()
 	
 	if upToCancel and upHold and groundPound:
@@ -669,9 +726,11 @@ func _physics_process(delta):
 		set_collision_mask_value(2, true)   # Re-enable collision with layer 2
 		is_dropping_through = false
 
-	if velocity.x != 0:
+	if velocity.x > 29 and is_on_floor():
 		rat_walk.stream_paused = false
-	if velocity.x == 0:
+	elif velocity.x < -29.9 and is_on_floor():
+		rat_walk.stream_paused = false
+	else:
 		rat_walk.stream_paused = true
 
 
@@ -789,3 +848,4 @@ func die_spikes():
 		#is_dead = true
 		#set_process_input(false)
 		anim.play("die")
+		
