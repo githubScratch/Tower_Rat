@@ -1,4 +1,4 @@
-[gd_scene load_steps=61 format=4 uid="uid://dh168tbc020ls"]
+[gd_scene load_steps=62 format=4 uid="uid://dh168tbc020ls"]
 
 [ext_resource type="Script" path="res://rooms/main.gd" id="1_wqltd"]
 [ext_resource type="PackedScene" uid="uid://cxs67dmbmny05" path="res://rooms/room1.tscn" id="2_8y26o"]
@@ -16,6 +16,17 @@
 [ext_resource type="PackedScene" uid="uid://dtfg4xij6hsg6" path="res://core components/HUD.tscn" id="10_8yw0t"]
 [ext_resource type="PackedScene" uid="uid://botn2mflrjenl" path="res://rooms/room_event.tscn" id="10_o7g7r"]
 [ext_resource type="PackedScene" uid="uid://1vamum1woupd" path="res://entities/tome.tscn" id="16_5jw64"]
+
+[sub_resource type="Environment" id="Environment_itn2l"]
+sky_custom_fov = 28.4
+ambient_light_source = 3
+ambient_light_color = Color(0.733005, 0.733005, 0.733005, 1)
+ambient_light_energy = 1.75
+tonemap_mode = 3
+glow_enabled = true
+fog_enabled = true
+adjustment_enabled = true
+adjustment_saturation = 0.5
 
 [sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_ebkk8"]
 polygon = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
@@ -1789,6 +1800,9 @@ script = ExtResource("1_wqltd")
 level_scenes = Array[PackedScene]([ExtResource("2_8y26o"), ExtResource("3_3gp3x"), ExtResource("4_mbgy8"), ExtResource("5_ppxdq")])
 wall_scenes = Array[PackedScene]([ExtResource("6_ubstl"), ExtResource("7_f3jnf"), ExtResource("8_qgjpw"), ExtResource("9_ux6j2")])
 special_scene = ExtResource("10_o7g7r")
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_itn2l")
 
 [node name="Control" type="Control" parent="."]
 layout_mode = 3
