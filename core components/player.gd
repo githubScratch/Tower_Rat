@@ -163,7 +163,7 @@ var movementInputMonitoring: Vector2 = Vector2(true, true) #movementInputMonitor
 var is_dropping_through: bool = false
 var is_dead: bool = false
 
-var wall_slide_buffer_time: float = 0.1  # Adjust this value to change buffer window
+var wall_slide_buffer_time: float = 0.05  # Adjust this value to change buffer window
 var wall_slide_buffer_timer: float = 0.0
 var was_wall_sliding: bool = false
 
@@ -331,7 +331,7 @@ func _process(_delta):
 		anim.speed_scale = 1
 		anim.play("jump")
 		
-	if velocity.y > 40 and falling and !dashing and !crouching and !is_dead and wall_slide_buffer_time <= 0:
+	if velocity.y > 1 and falling and !dashing and !crouching and !is_dead and wall_slide_buffer_time <= 0:
 		anim.speed_scale = 1
 		anim.play("falling")
 	
@@ -701,8 +701,8 @@ func _physics_process(delta):
 			if platform and platform is Node2D:
 				if "velocity" in platform:
 					platform_velocity = platform.velocity
-					print("Platform Velocity: ", platform_velocity)  # Debug print
-					print("Player Velocity: ", velocity)
+					#print("Platform Velocity: ", platform_velocity)  # Debug print
+					#print("Player Velocity: ", velocity)
 					break
 
 	var input_velocity = Vector2.ZERO

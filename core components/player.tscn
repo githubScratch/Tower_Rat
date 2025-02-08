@@ -901,7 +901,8 @@ process_mode = 3
 z_index = 1
 position = Vector2(0, -16)
 sprite_frames = SubResource("SpriteFrames_qp3cg")
-animation = &"run"
+animation = &"falling"
+frame_progress = 0.486548
 
 [node name="deadLight" type="PointLight2D" parent="."]
 unique_name_in_owner = true

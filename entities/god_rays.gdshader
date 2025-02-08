@@ -22,7 +22,7 @@ uniform float ray1_density = 8.0;
 uniform float ray2_density = 30.0;
 uniform float ray2_intensity : hint_range(0.0, 1.0) = 0.3;
 
-uniform vec4 color : source_color = vec4(0.5, 0.25, 0.5, 0.8);
+uniform vec4 color : source_color = vec4(0.5, 0.25, 0.5, 0.4);
 
 uniform bool hdr = false;
 uniform float seed = 5.0;
