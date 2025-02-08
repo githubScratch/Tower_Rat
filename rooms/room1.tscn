@@ -1,8 +1,9 @@
-[gd_scene load_steps=45 format=4 uid="uid://cxs67dmbmny05"]
+[gd_scene load_steps=46 format=4 uid="uid://cxs67dmbmny05"]
 
 [ext_resource type="Script" path="res://rooms/room_1.gd" id="1_dopbk"]
 [ext_resource type="Texture2D" uid="uid://b60w5lubcj66p" path="res://sprites/Dungeon Tile Set.png" id="1_n5ym3"]
 [ext_resource type="PackedScene" uid="uid://52x4aqu36q2b" path="res://entities/scroll.tscn" id="3_8w8kh"]
+[ext_resource type="PackedScene" uid="uid://1vamum1woupd" path="res://entities/tome.tscn" id="3_m6wmt"]
 
 [sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_ebkk8"]
 polygon = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
@@ -1043,6 +1044,15 @@ shape = SubResource("RectangleShape2D_sanaj")
 [node name="CollisionShape2D4" type="CollisionShape2D" parent="Spikes"]
 position = Vector2(1288, 265.5)
 shape = SubResource("RectangleShape2D_sanaj")
+
+[node name="Node2D" parent="Spikes" instance=ExtResource("3_m6wmt")]
+position = Vector2(344, 216)
+
+[node name="Node2D2" parent="Spikes" instance=ExtResource("3_m6wmt")]
+position = Vector2(484, 134)
+
+[node name="Node2D3" parent="Spikes" instance=ExtResource("3_m6wmt")]
+position = Vector2(118, 64)
 
 [node name="Node2D" parent="." instance=ExtResource("3_8w8kh")]
 position = Vector2(408, 228)

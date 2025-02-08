@@ -1,10 +1,11 @@
-[gd_scene load_steps=53 format=4 uid="uid://dult5fdl2iu7i"]
+[gd_scene load_steps=54 format=4 uid="uid://dult5fdl2iu7i"]
 
 [ext_resource type="Script" path="res://rooms/room_1.gd" id="1_fi587"]
 [ext_resource type="Texture2D" uid="uid://b60w5lubcj66p" path="res://sprites/Dungeon Tile Set.png" id="1_uore7"]
 [ext_resource type="Texture2D" uid="uid://cy2eqqnsqka6h" path="res://sprites/anim_lights.png" id="2_yu1ak"]
 [ext_resource type="Texture2D" uid="uid://bgfb27ghdt4wy" path="res://vfx/2d_lights_and_shadows_neutral_point_light.webp" id="3_k3cjy"]
 [ext_resource type="PackedScene" uid="uid://52x4aqu36q2b" path="res://entities/scroll.tscn" id="5_jn53r"]
+[ext_resource type="PackedScene" uid="uid://1vamum1woupd" path="res://entities/tome.tscn" id="6_dpwa5"]
 
 [sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_ebkk8"]
 polygon = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
@@ -1243,5 +1244,17 @@ position = Vector2(1256, 278)
 
 [node name="Node2D4" parent="." instance=ExtResource("5_jn53r")]
 position = Vector2(745, 70)
+
+[node name="Node2D5" parent="." instance=ExtResource("6_dpwa5")]
+position = Vector2(407, 227)
+
+[node name="Node2D6" parent="." instance=ExtResource("6_dpwa5")]
+position = Vector2(710, 142)
+
+[node name="Node2D7" parent="." instance=ExtResource("6_dpwa5")]
+position = Vector2(1011, 282)
+
+[node name="Node2D8" parent="." instance=ExtResource("6_dpwa5")]
+position = Vector2(762, 305)
 
 [connection signal="body_entered" from="Spikes" to="." method="_on_spikes_body_entered"]

@@ -973,3 +973,21 @@ pitch_scale = 3.0
 stream = ExtResource("12_ui38j")
 pitch_scale = 1.2
 autoplay = true
+
+[node name="RayRight" type="RayCast2D" parent="."]
+position = Vector2(1, -5)
+target_position = Vector2(1, 0)
+collision_mask = 3
+
+[node name="RayLeft2" type="RayCast2D" parent="."]
+position = Vector2(-1, -1)
+target_position = Vector2(-1, 0)
+
+[node name="RayRight2" type="RayCast2D" parent="."]
+position = Vector2(1, -1)
+target_position = Vector2(1, 0)
+
+[node name="RayLeft" type="RayCast2D" parent="."]
+position = Vector2(-1, -5)
+target_position = Vector2(-1, 0)
+collision_mask = 3

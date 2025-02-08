@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bp0o7a5vfsg7r"
-path="res://.godot/imported/magic_particles_10.png-36a3d89c44d847866c3dcf4ca77d456d.ctex"
+uid="uid://2lxvlb8i4ye7"
+path="res://.godot/imported/tome.png-43316e7f03a6feb01c859e915a5bc3b0.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://vfx/magic_particles_10.png"
-dest_files=["res://.godot/imported/magic_particles_10.png-36a3d89c44d847866c3dcf4ca77d456d.ctex"]
+source_file="res://sprites/tome.png"
+dest_files=["res://.godot/imported/tome.png-43316e7f03a6feb01c859e915a5bc3b0.ctex"]
 
 [params]
 

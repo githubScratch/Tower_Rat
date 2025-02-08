@@ -19,6 +19,10 @@ class_name PlatformerController2D
 @onready var rat_dash: AudioStreamPlayer2D = $ratDash
 @onready var rat_impact: AudioStreamPlayer2D = $ratImpact
 @onready var rat_slide: AudioStreamPlayer2D = $ratSlide
+@onready var ray_right: RayCast2D = $RayRight
+@onready var ray_left: RayCast2D = $RayLeft
+@onready var ray_left_2: RayCast2D = $RayLeft2
+@onready var ray_right_2: RayCast2D = $RayRight2
 
 @onready var dead_particles: GPUParticles2D = $deadParticles
 @export var max_platform_velocity: float = 30.0  # Adjust as needed
@@ -414,15 +418,8 @@ func _physics_process(delta):
 
 	#Crush Check
 	if test_move(transform, Vector2.ZERO) and not is_dead:
-		# We can't move at all - we're crushed
-		await get_tree().create_timer(0.25).timeout
-		var can_move_up = !test_move(transform, Vector2(0, -1))
-		var can_move_down = !test_move(transform, Vector2(0, 1))
-		var can_move_left = !test_move(transform, Vector2(-1, 0))
-		var can_move_right = !test_move(transform, Vector2(1, 0))
-	
-	# Only die if we can't move in opposite directions (truly crushed)
-		if (!can_move_up && !can_move_down) || (!can_move_left && !can_move_right):
+		#await get_tree().create_timer(0.15).timeout
+		if ray_left.is_colliding() || ray_right.is_colliding() || ray_left_2.is_colliding() || ray_right_2.is_colliding():
 			die_crush()
 
 
@@ -847,15 +844,17 @@ func die_fire():
 
 func die_spikes():
 	die_spikes_sfx.play()
-	#dead_light.visible = true
+	dead_light.visible = true
 	if !is_dead:
-		#animation_player.play("dead_zoom")
-		#velocity.x = 0
-		velocity.y = -400
-		#is_dead = true
-		#set_process_input(false)
+		animation_player.play("dead_zoom")
+		velocity.x = 0
+		velocity.y = -100
+		is_dead = true
+		set_process_input(false)
 		anim.play("die")
-		
+		await get_tree().create_timer(0.5).timeout
+		set_physics_process(false)
+
 func die_crush():
 	dead_light.visible = true
 	die_spikes_sfx.play()
@@ -866,3 +865,8 @@ func die_crush():
 		is_dead = true
 		set_process_input(false)
 		anim.play("die")
+		set_physics_process(false)
+
+func book_bounce():
+	if !is_dead:
+		velocity.y = -200
