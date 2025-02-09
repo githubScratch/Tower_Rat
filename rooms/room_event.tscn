@@ -1,10 +1,11 @@
-[gd_scene load_steps=49 format=4 uid="uid://botn2mflrjenl"]
+[gd_scene load_steps=50 format=4 uid="uid://botn2mflrjenl"]
 
 [ext_resource type="Script" path="res://rooms/room_1.gd" id="1_c13w0"]
 [ext_resource type="Texture2D" uid="uid://b60w5lubcj66p" path="res://sprites/Dungeon Tile Set.png" id="1_grb1t"]
 [ext_resource type="PackedScene" uid="uid://52x4aqu36q2b" path="res://entities/scroll.tscn" id="2_cceow"]
 [ext_resource type="Texture2D" uid="uid://cy2eqqnsqka6h" path="res://sprites/anim_lights.png" id="3_io3dr"]
 [ext_resource type="Texture2D" uid="uid://bgfb27ghdt4wy" path="res://vfx/2d_lights_and_shadows_neutral_point_light.webp" id="4_gdhc8"]
+[ext_resource type="PackedScene" uid="uid://1vamum1woupd" path="res://entities/tome.tscn" id="6_e5onc"]
 
 [sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_ebkk8"]
 polygon = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
@@ -1027,7 +1028,7 @@ script = ExtResource("1_c13w0")
 
 [node name="walls" type="TileMapLayer" parent="."]
 z_index = -1
-tile_map_data = PackedByteArray("AAAPAA8AAAACAAEAAAAQAA8AAAACAAEAAAARAA8AAAACAAEAAAASAA8AAAACAAEAAAATAA8AAAACAAEAAAAUAA8AAAACAAEAAAAVAA8AAAACAAEAAAAWAA8AAAACAAEAAAAXAA8AAAACAAEAAAAYAA8AAAACAAEAAAAZAA8AAAACAAEAAAANAA8AAAABAAEAAAAOAA8AAAACAAEAAAANABAAAAAFAAUAAAAOABAAAAACAAMAAAAPABAAAAACAAMAAAAQABAAAAACAAMAAAARABAAAAACAAMAAAASABAAAAACAAMAAAATABAAAAACAAMAAAAUABAAAAACAAMAAAAVABAAAAACAAMAAAAWABAAAAACAAMAAAAXABAAAAACAAMAAAAYABAAAAACAAMAAAAZABAAAAACAAMAAAAFAAEAAAADAAEAAAAFAAIAAAADAAIAAAAFAAMAAAADAAMAAAAHAAUAAAADAAEAAAAHAAYAAAADAAIAAAAHAAcAAAADAAMAAAAJAAkAAAADAAEAAAAJAAoAAAADAAIAAAAJAAsAAAADAAMAAAAIAAkAAAABAAEAAAAIAAoAAAABAAIAAAAIAAsAAAAFAAUAAAAGAAUAAAABAAEAAAAGAAYAAAABAAIAAAAGAAcAAAAFAAUAAAAEAAEAAAABAAEAAAAEAAIAAAABAAIAAAAEAAMAAAAFAAUAAAAfAAkAAAABAAEAAAAfAAoAAAABAAIAAAAfAAsAAAABAAMAAAAhAAUAAAABAAEAAAAhAAYAAAABAAIAAAAhAAcAAAABAAMAAAAjAAEAAAABAAEAAAAjAAIAAAABAAIAAAAjAAMAAAABAAMAAAAgAAkAAAADAAEAAAAgAAoAAAADAAIAAAAgAAsAAAAGAAUAAAAiAAUAAAADAAEAAAAiAAYAAAADAAIAAAAiAAcAAAAGAAUAAAAkAAEAAAADAAEAAAAkAAIAAAADAAIAAAAkAAMAAAAGAAUAAAAbAA8AAAADAAEAAAAbABAAAAAGAAUAAAAaAA8AAAACAAEAAAAaABAAAAACAAMAAAALAAMAAAABAAEAAAALAAQAAAABAAIAAAALAAUAAAAFAAUAAAAMAAMAAAADAAEAAAAMAAQAAAADAAIAAAAMAAUAAAADAAMAAAAcAAMAAAABAAEAAAAcAAQAAAABAAIAAAAcAAUAAAABAAMAAAAdAAMAAAADAAEAAAAdAAQAAAADAAIAAAAdAAUAAAAGAAUAAAAWAAYAAAABAAEAAAAWAAcAAAABAAIAAAAWAAgAAAABAAMAAAAXAAYAAAADAAEAAAAXAAcAAAADAAIAAAAXAAgAAAAGAAUAAAASAAYAAAADAAEAAAASAAcAAAADAAIAAAASAAgAAAADAAMAAAARAAYAAAABAAEAAAARAAcAAAABAAIAAAARAAgAAAAFAAUAAAAYAAEAAAABAAEAAAAYAAIAAAABAAIAAAAYAAMAAAABAAMAAAAZAAEAAAADAAEAAAAZAAIAAAADAAIAAAAZAAMAAAAGAAUAAAAPAAEAAAABAAEAAAAPAAIAAAABAAIAAAAPAAMAAAAFAAUAAAAQAAEAAAADAAEAAAAQAAIAAAADAAIAAAAQAAMAAAADAAMAAAANAAgAAAABAAEAAAANAAkAAAABAAIAAAAOAAgAAAADAAEAAAAOAAkAAAADAAIAAAANAAoAAAAFAAUAAAAOAAoAAAADAAMAAAAaAAgAAAABAAEAAAAaAAkAAAABAAIAAAAbAAgAAAADAAEAAAAbAAkAAAADAAIAAAAaAAoAAAABAAMAAAAbAAoAAAAGAAUAAAAtAAEAAAABAAEAAAAtAAIAAAABAAIAAAAtAAMAAAAFAAUAAAAvAAUAAAABAAEAAAAvAAYAAAABAAIAAAAvAAcAAAAFAAUAAAAxAAkAAAABAAEAAAAxAAoAAAABAAIAAAAxAAsAAAAFAAUAAAA0AAMAAAABAAEAAAA0AAQAAAABAAIAAAA0AAUAAAAFAAUAAAA2AAgAAAABAAEAAAA2AAkAAAABAAIAAAA2AAoAAAAFAAUAAAA2ABAAAAAFAAEAAAA3AA8AAAAFAAEAAAA3ABAAAAACAAEAAAA4AAEAAAABAAEAAAA4AAIAAAABAAIAAAA4AAMAAAAFAAUAAAA4AA8AAAACAAEAAAA4ABAAAAACAAEAAAA5AA8AAAACAAEAAAA5ABAAAAACAAEAAAA6AAYAAAABAAEAAAA6AAcAAAABAAIAAAA6AAgAAAAFAAUAAAA6AA8AAAACAAEAAAA6ABAAAAACAAEAAAA7AA8AAAACAAEAAAA7ABAAAAACAAEAAAA8AA8AAAACAAEAAAA8ABAAAAACAAEAAAA9AA8AAAACAAEAAAA9ABAAAAACAAEAAAA+AA8AAAACAAEAAAA+ABAAAAACAAEAAAA/AAYAAAABAAEAAAA/AAcAAAABAAIAAAA/AAgAAAABAAMAAAA/AA8AAAACAAEAAAA/ABAAAAACAAEAAABAAA8AAAACAAEAAABAABAAAAACAAEAAABBAAEAAAABAAEAAABBAAIAAAABAAIAAABBAAMAAAABAAMAAABBAA8AAAACAAEAAABBABAAAAACAAEAAABCAA8AAAACAAEAAABCABAAAAACAAEAAABDAAgAAAABAAEAAABDAAkAAAABAAIAAABDAAoAAAABAAMAAABDAA8AAAAGAAEAAABDABAAAAACAAEAAABFAAMAAAABAAEAAABFAAQAAAABAAIAAABFAAUAAAABAAMAAABIAAkAAAABAAEAAABIAAoAAAABAAIAAABIAAsAAAABAAMAAABKAAUAAAABAAEAAABKAAYAAAABAAIAAABKAAcAAAABAAMAAABMAAEAAAABAAEAAABMAAIAAAABAAIAAABMAAMAAAABAAMAAAAuAAEAAAADAAEAAAAuAAIAAAADAAIAAAAuAAMAAAADAAMAAAAwAAUAAAADAAEAAAAwAAYAAAADAAIAAAAwAAcAAAADAAMAAAAyAAkAAAADAAEAAAAyAAoAAAADAAIAAAAyAAsAAAADAAMAAAA1AAMAAAADAAEAAAA1AAQAAAADAAIAAAA1AAUAAAADAAMAAAA3AAgAAAADAAEAAAA3AAkAAAADAAIAAAA3AAoAAAADAAMAAAA5AAEAAAADAAEAAAA5AAIAAAADAAIAAAA5AAMAAAADAAMAAAA7AAYAAAADAAEAAAA7AAcAAAADAAIAAAA7AAgAAAADAAMAAABAAAYAAAADAAEAAABAAAcAAAADAAIAAABAAAgAAAAGAAUAAABCAAEAAAADAAEAAABCAAIAAAADAAIAAABCAAMAAAAGAAUAAABEAAgAAAADAAEAAABEAAkAAAADAAIAAABEAAoAAAAGAAUAAABEABAAAAAGAAEAAABGAAMAAAADAAEAAABGAAQAAAADAAIAAABGAAUAAAAGAAUAAABJAAkAAAADAAEAAABJAAoAAAADAAIAAABJAAsAAAAGAAUAAABLAAUAAAADAAEAAABLAAYAAAADAAIAAABLAAcAAAAGAAUAAABNAAEAAAADAAEAAABNAAIAAAADAAIAAABNAAMAAAAGAAUAAAA=")
+tile_map_data = PackedByteArray("AAAFAAIAAAADAAIAAAAFAAMAAAADAAMAAAAHAAYAAAADAAEAAAAHAAcAAAADAAMAAAAJAAoAAAADAAEAAAAJAAsAAAADAAMAAAAIAAoAAAABAAEAAAAIAAsAAAAFAAUAAAAGAAYAAAABAAEAAAAGAAcAAAAFAAUAAAAEAAIAAAABAAEAAAAEAAMAAAAFAAUAAAAfAAoAAAABAAEAAAAfAAsAAAABAAMAAAAhAAYAAAABAAEAAAAhAAcAAAABAAMAAAAjAAIAAAABAAEAAAAjAAMAAAABAAMAAAAgAAoAAAADAAEAAAAgAAsAAAAGAAUAAAAiAAYAAAADAAEAAAAiAAcAAAAGAAUAAAAkAAIAAAADAAEAAAAkAAMAAAAGAAUAAAALAAQAAAABAAEAAAALAAUAAAAFAAUAAAAMAAQAAAADAAEAAAAMAAUAAAADAAMAAAAcAAQAAAABAAEAAAAcAAUAAAABAAMAAAAdAAQAAAADAAEAAAAdAAUAAAAGAAUAAAAWAAcAAAABAAEAAAAWAAgAAAABAAMAAAAXAAcAAAADAAEAAAAXAAgAAAAGAAUAAAASAAcAAAADAAEAAAASAAgAAAADAAMAAAARAAcAAAABAAEAAAARAAgAAAAFAAUAAAAYAAIAAAABAAEAAAAYAAMAAAABAAMAAAAZAAIAAAADAAEAAAAZAAMAAAAGAAUAAAAPAAIAAAABAAEAAAAPAAMAAAAFAAUAAAAQAAIAAAADAAEAAAAQAAMAAAADAAMAAAANAAkAAAABAAEAAAAOAAkAAAADAAEAAAANAAoAAAAFAAUAAAAOAAoAAAADAAMAAAAaAAkAAAABAAEAAAAbAAkAAAADAAEAAAAaAAoAAAABAAMAAAAbAAoAAAAGAAUAAAAtAAEAAAABAAEAAAAtAAIAAAABAAIAAAAtAAMAAAAFAAUAAAAvAAUAAAABAAEAAAAvAAYAAAABAAIAAAAvAAcAAAAFAAUAAAAxAAkAAAABAAEAAAAxAAoAAAABAAIAAAAxAAsAAAAFAAUAAAA0AAMAAAABAAEAAAA0AAQAAAABAAIAAAA0AAUAAAAFAAUAAAA2AAgAAAABAAEAAAA2AAkAAAABAAIAAAA2AAoAAAAFAAUAAAA4AAEAAAABAAEAAAA4AAIAAAABAAIAAAA4AAMAAAAFAAUAAAA6AAYAAAABAAEAAAA6AAcAAAABAAIAAAA6AAgAAAAFAAUAAAA/AAYAAAABAAEAAAA/AAcAAAABAAIAAAA/AAgAAAABAAMAAABBAAEAAAABAAEAAABBAAIAAAABAAIAAABBAAMAAAABAAMAAABDAAgAAAABAAEAAABDAAkAAAABAAIAAABDAAoAAAABAAMAAABFAAMAAAABAAEAAABFAAQAAAABAAIAAABFAAUAAAABAAMAAABIAAkAAAABAAEAAABIAAoAAAABAAIAAABIAAsAAAABAAMAAABKAAUAAAABAAEAAABKAAYAAAABAAIAAABKAAcAAAABAAMAAABMAAEAAAABAAEAAABMAAIAAAABAAIAAABMAAMAAAABAAMAAAAuAAEAAAADAAEAAAAuAAIAAAADAAIAAAAuAAMAAAADAAMAAAAwAAUAAAADAAEAAAAwAAYAAAADAAIAAAAwAAcAAAADAAMAAAAyAAkAAAADAAEAAAAyAAoAAAADAAIAAAAyAAsAAAADAAMAAAA1AAMAAAADAAEAAAA1AAQAAAADAAIAAAA1AAUAAAADAAMAAAA3AAgAAAADAAEAAAA3AAkAAAADAAIAAAA3AAoAAAADAAMAAAA5AAEAAAADAAEAAAA5AAIAAAADAAIAAAA5AAMAAAADAAMAAAA7AAYAAAADAAEAAAA7AAcAAAADAAIAAAA7AAgAAAADAAMAAABAAAYAAAADAAEAAABAAAcAAAADAAIAAABAAAgAAAAGAAUAAABCAAEAAAADAAEAAABCAAIAAAADAAIAAABCAAMAAAAGAAUAAABEAAgAAAADAAEAAABEAAkAAAADAAIAAABEAAoAAAAGAAUAAABGAAMAAAADAAEAAABGAAQAAAADAAIAAABGAAUAAAAGAAUAAABJAAkAAAADAAEAAABJAAoAAAADAAIAAABJAAsAAAAGAAUAAABLAAUAAAADAAEAAABLAAYAAAADAAIAAABLAAcAAAAGAAUAAABNAAEAAAADAAEAAABNAAIAAAADAAIAAABNAAMAAAAGAAUAAAA=")
 tile_set = SubResource("TileSet_5o1qi")
 
 [node name="oneways+" type="TileMapLayer" parent="."]
@@ -1056,7 +1057,7 @@ position = Vector2(1056, 11)
 scale = Vector2(0.75, 0.75)
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="candleContainer"]
-position = Vector2(-1021.33, 105.333)
+position = Vector2(-1022.67, 128)
 sprite_frames = SubResource("SpriteFrames_obyi7")
 autoplay = "default"
 
@@ -1067,7 +1068,7 @@ texture = ExtResource("4_gdhc8")
 texture_scale = 0.4
 
 [node name="AnimatedSprite2D2" type="AnimatedSprite2D" parent="candleContainer"]
-position = Vector2(-917.333, 105.333)
+position = Vector2(-917.333, 126.667)
 sprite_frames = SubResource("SpriteFrames_obyi7")
 autoplay = "default"
 
@@ -1078,7 +1079,7 @@ texture = ExtResource("4_gdhc8")
 texture_scale = 0.4
 
 [node name="AnimatedSprite2D3" type="AnimatedSprite2D" parent="candleContainer"]
-position = Vector2(-789.333, 41.3333)
+position = Vector2(-788, 64)
 sprite_frames = SubResource("SpriteFrames_obyi7")
 autoplay = "default"
 
@@ -1089,7 +1090,7 @@ texture = ExtResource("4_gdhc8")
 texture_scale = 0.4
 
 [node name="AnimatedSprite2D4" type="AnimatedSprite2D" parent="candleContainer"]
-position = Vector2(-1152, 41.3333)
+position = Vector2(-1150.67, 65.3333)
 sprite_frames = SubResource("SpriteFrames_obyi7")
 autoplay = "default"
 
@@ -1100,7 +1101,7 @@ texture = ExtResource("4_gdhc8")
 texture_scale = 0.4
 
 [node name="AnimatedSprite2D5" type="AnimatedSprite2D" parent="candleContainer"]
-position = Vector2(-1216, 170.667)
+position = Vector2(-1214.67, 193.333)
 sprite_frames = SubResource("SpriteFrames_obyi7")
 autoplay = "default"
 
@@ -1111,7 +1112,7 @@ texture = ExtResource("4_gdhc8")
 texture_scale = 0.4
 
 [node name="AnimatedSprite2D6" type="AnimatedSprite2D" parent="candleContainer"]
-position = Vector2(-724, 172)
+position = Vector2(-726.667, 192)
 sprite_frames = SubResource("SpriteFrames_obyi7")
 autoplay = "default"
 
@@ -1188,47 +1189,116 @@ texture_scale = 0.4
 
 [node name="scrollContainer" type="Node2D" parent="."]
 
-[node name="Node2D" parent="scrollContainer" instance=ExtResource("2_cceow")]
-position = Vector2(240, 229)
-
 [node name="Node2D2" parent="scrollContainer" instance=ExtResource("2_cceow")]
-position = Vector2(264, 229)
-
-[node name="Node2D3" parent="scrollContainer" instance=ExtResource("2_cceow")]
-position = Vector2(288, 229)
+position = Vector2(252, 229)
 
 [node name="Node2D4" parent="scrollContainer" instance=ExtResource("2_cceow")]
-position = Vector2(312, 229)
-
-[node name="Node2D5" parent="scrollContainer" instance=ExtResource("2_cceow")]
-position = Vector2(336, 229)
+position = Vector2(295, 229)
 
 [node name="Node2D6" parent="scrollContainer" instance=ExtResource("2_cceow")]
 position = Vector2(360, 229)
-
-[node name="Node2D7" parent="scrollContainer" instance=ExtResource("2_cceow")]
-position = Vector2(384, 229)
 
 [node name="Node2D8" parent="scrollContainer" instance=ExtResource("2_cceow")]
 position = Vector2(408, 229)
 
 [node name="Node2D9" parent="scrollContainer" instance=ExtResource("2_cceow")]
-position = Vector2(944, 229)
-
-[node name="Node2D10" parent="scrollContainer" instance=ExtResource("2_cceow")]
-position = Vector2(965, 229)
+position = Vector2(918, 229)
 
 [node name="Node2D11" parent="scrollContainer" instance=ExtResource("2_cceow")]
-position = Vector2(989, 229)
-
-[node name="Node2D12" parent="scrollContainer" instance=ExtResource("2_cceow")]
-position = Vector2(1013, 229)
+position = Vector2(984, 190)
 
 [node name="Node2D13" parent="scrollContainer" instance=ExtResource("2_cceow")]
-position = Vector2(1035, 229)
+position = Vector2(1048, 229)
 
 [node name="Node2D14" parent="scrollContainer" instance=ExtResource("2_cceow")]
-position = Vector2(1059, 229)
+position = Vector2(1112, 204)
 
 [node name="Node2D15" parent="scrollContainer" instance=ExtResource("2_cceow")]
-position = Vector2(920, 229)
+position = Vector2(856, 208)
+
+[node name="Node2D" parent="scrollContainer" instance=ExtResource("6_e5onc")]
+position = Vector2(848, 234)
+
+[node name="Node2D3" parent="scrollContainer" instance=ExtResource("6_e5onc")]
+position = Vector2(882, 243)
+
+[node name="Node2D5" parent="scrollContainer" instance=ExtResource("6_e5onc")]
+position = Vector2(920, 256)
+
+[node name="Node2D7" parent="scrollContainer" instance=ExtResource("6_e5onc")]
+position = Vector2(948, 240)
+
+[node name="Node2D10" parent="scrollContainer" instance=ExtResource("6_e5onc")]
+position = Vector2(966, 216)
+
+[node name="Node2D12" parent="scrollContainer" instance=ExtResource("6_e5onc")]
+position = Vector2(1004, 216)
+
+[node name="Node2D16" parent="scrollContainer" instance=ExtResource("6_e5onc")]
+position = Vector2(1020, 240)
+
+[node name="Node2D17" parent="scrollContainer" instance=ExtResource("6_e5onc")]
+position = Vector2(1050, 256)
+
+[node name="Node2D18" parent="scrollContainer" instance=ExtResource("6_e5onc")]
+position = Vector2(1084, 244)
+
+[node name="Node2D19" parent="scrollContainer" instance=ExtResource("6_e5onc")]
+position = Vector2(1120, 232)
+
+[node name="Node2D20" parent="scrollContainer" instance=ExtResource("6_e5onc")]
+position = Vector2(984, 255)
+
+[node name="Node2D21" parent="scrollContainer" instance=ExtResource("6_e5onc")]
+position = Vector2(984, 291)
+
+[node name="Node2D22" parent="scrollContainer" instance=ExtResource("6_e5onc")]
+position = Vector2(1120, 260)
+
+[node name="Node2D23" parent="scrollContainer" instance=ExtResource("6_e5onc")]
+position = Vector2(952, 272)
+
+[node name="Node2D24" parent="scrollContainer" instance=ExtResource("6_e5onc")]
+position = Vector2(1018, 272)
+
+[node name="Node2D25" parent="scrollContainer" instance=ExtResource("6_e5onc")]
+position = Vector2(984, 168)
+
+[node name="Node2D26" parent="scrollContainer" instance=ExtResource("6_e5onc")]
+position = Vector2(848, 259)
+
+[node name="Node2D27" parent="scrollContainer" instance=ExtResource("6_e5onc")]
+position = Vector2(816, 272)
+
+[node name="Node2D28" parent="scrollContainer" instance=ExtResource("6_e5onc")]
+position = Vector2(1152, 280)
+
+[node name="Node2D" parent="." instance=ExtResource("6_e5onc")]
+position = Vector2(251, 264)
+
+[node name="Node2D2" parent="." instance=ExtResource("6_e5onc")]
+position = Vector2(296, 264)
+
+[node name="Node2D3" parent="." instance=ExtResource("6_e5onc")]
+position = Vector2(360, 264)
+
+[node name="Node2D4" parent="." instance=ExtResource("6_e5onc")]
+position = Vector2(408, 264)
+
+[node name="Node2D5" parent="." instance=ExtResource("6_e5onc")]
+position = Vector2(456, 240)
+
+[node name="Node2D6" parent="." instance=ExtResource("6_e5onc")]
+position = Vector2(472, 208)
+
+[node name="Node2D7" parent="." instance=ExtResource("6_e5onc")]
+position = Vector2(200, 240)
+
+[node name="Node2D8" parent="." instance=ExtResource("6_e5onc")]
+position = Vector2(176, 208)
+
+[node name="Node2D9" parent="." instance=ExtResource("6_e5onc")]
+position = Vector2(272, 296)
+
+[node name="Node2D10" parent="." instance=ExtResource("6_e5onc")]
+position = Vector2(384, 296)

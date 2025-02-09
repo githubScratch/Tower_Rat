@@ -872,7 +872,6 @@ PlayerCollider = NodePath("CollisionShape2D")
 timeToReachZeroSpeed = 0.3
 runningModifier = true
 jumpHeight = 1.25
-jumps = 2
 gravityScale = 10.476
 terminalVelocity = 400.0
 descendingGravityFactor = 1.4
@@ -973,7 +972,6 @@ pitch_scale = 3.0
 [node name="ratSlide" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("12_ui38j")
 pitch_scale = 1.2
-autoplay = true
 
 [node name="RayRight" type="RayCast2D" parent="."]
 position = Vector2(1, -5)

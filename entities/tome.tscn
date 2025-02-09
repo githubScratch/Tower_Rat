@@ -1,8 +1,9 @@
-[gd_scene load_steps=21 format=3 uid="uid://1vamum1woupd"]
+[gd_scene load_steps=23 format=3 uid="uid://1vamum1woupd"]
 
 [ext_resource type="Texture2D" uid="uid://2lxvlb8i4ye7" path="res://sprites/tome.png" id="1_o3d7l"]
 [ext_resource type="Script" path="res://entities/tome.gd" id="1_y03ln"]
 [ext_resource type="AudioStream" uid="uid://bdxecaxgso8mo" path="res://sfx/Retro Event UI 13.wav" id="2_3ydpb"]
+[ext_resource type="Texture2D" uid="uid://dboewphxl7oix" path="res://sprites/Scroll_02_02_ArtOfScrolls_BigWander(16x16).png" id="4_6qo7n"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_tgwdf"]
 atlas = ExtResource("1_o3d7l")
@@ -125,6 +126,18 @@ tracks/2/keys = {
 "update": 1,
 "values": [false]
 }
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("pageParticles:emitting")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
 
 [sub_resource type="Animation" id="Animation_vsuuc"]
 resource_name = "idle"
@@ -180,6 +193,18 @@ tracks/2/keys = {
 "update": 1,
 "values": [true]
 }
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("pageParticles:emitting")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 0.466667),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
+}
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_m2ibl"]
 _data = {
@@ -193,6 +218,10 @@ size = Vector2(160, 40)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_k636g"]
 size = Vector2(186.667, 20)
+
+[sub_resource type="Gradient" id="Gradient_fri2p"]
+offsets = PackedFloat32Array(0.706667, 1)
+colors = PackedColorArray(1, 1, 1, 1, 1, 1, 1, 0)
 
 [node name="Node2D" type="Node2D"]
 scale = Vector2(0.15, 0.15)
@@ -217,6 +246,7 @@ pitch_scale = 0.75
 [node name="Area2D" type="Area2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+visible = false
 position = Vector2(-3.17891e-06, -26.6667)
 shape = SubResource("RectangleShape2D_7mg3y")
 
@@ -225,8 +255,26 @@ collision_layer = 2
 collision_mask = 4
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+visible = false
 position = Vector2(0, -10)
 shape = SubResource("RectangleShape2D_k636g")
 one_way_collision = true
+
+[node name="pageParticles" type="CPUParticles2D" parent="."]
+position = Vector2(0, -20)
+emitting = false
+amount = 9
+lifetime = 2.0
+texture = ExtResource("4_6qo7n")
+emission_shape = 3
+emission_rect_extents = Vector2(50, 5)
+gravity = Vector2(0, 40)
+angular_velocity_min = -200.0
+angular_velocity_max = 200.0
+orbit_velocity_min = -1.0
+orbit_velocity_max = 1.0
+tangential_accel_min = -50.0
+tangential_accel_max = 50.0
+color_ramp = SubResource("Gradient_fri2p")
 
 [connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]

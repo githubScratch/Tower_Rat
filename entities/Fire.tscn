@@ -53,6 +53,19 @@ shader_parameter/color = Color(0.5, 0.25, 0.5, 0.4)
 shader_parameter/hdr = false
 shader_parameter/seed = 5.0
 
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_brqn1"]
+shader = ExtResource("3_5fong")
+shader_parameter/range = 0.1
+shader_parameter/noiseQuality = 250.0
+shader_parameter/noiseIntensity = 0.02
+shader_parameter/offsetIntensity = 0.05
+shader_parameter/colorOffsetIntensity = 1.3
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_43n1b"]
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_eyx17"]
+noise = SubResource("FastNoiseLite_43n1b")
+
 [sub_resource type="Animation" id="Animation_i6god"]
 length = 0.001
 tracks/0/type = "value"
@@ -1243,19 +1256,6 @@ animations = [{
 "speed": 18.0
 }]
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_brqn1"]
-shader = ExtResource("3_5fong")
-shader_parameter/range = 0.1
-shader_parameter/noiseQuality = 250.0
-shader_parameter/noiseIntensity = 0.02
-shader_parameter/offsetIntensity = 0.05
-shader_parameter/colorOffsetIntensity = 1.3
-
-[sub_resource type="FastNoiseLite" id="FastNoiseLite_43n1b"]
-
-[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_eyx17"]
-noise = SubResource("FastNoiseLite_43n1b")
-
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_w7chh"]
 size = Vector2(856, 32)
 
@@ -1652,19 +1652,28 @@ offset_bottom = 296.0
 position = Vector2(208, -16)
 shape = SubResource("RectangleShape2D_o2ctc")
 
-[node name="ColorRect2" type="ColorRect" parent="Fire"]
+[node name="Beam" type="ColorRect" parent="Fire"]
 material = SubResource("ShaderMaterial_ylw8d")
-offset_left = -160.0
-offset_top = -112.0
-offset_right = 816.0
-offset_bottom = 96.0
+offset_left = -132.0
+offset_top = -37.0
+offset_right = 844.0
+offset_bottom = 27.0
 
-[node name="ColorRect3" type="ColorRect" parent="Fire"]
+[node name="GodRays" type="ColorRect" parent="Fire"]
 material = SubResource("ShaderMaterial_toc01")
 offset_left = -176.0
 offset_top = -304.0
 offset_right = 808.0
 offset_bottom = 288.0
+
+[node name="TimeWipeShader" type="TextureRect" parent="Fire"]
+material = SubResource("ShaderMaterial_brqn1")
+offset_left = -136.0
+offset_top = -504.0
+offset_right = 376.0
+offset_bottom = 7.99997
+scale = Vector2(1.73983, 0.978938)
+texture = SubResource("NoiseTexture2D_eyx17")
 
 [node name="AnimationPlayer2" type="AnimationPlayer" parent="Fire"]
 root_node = NodePath("../bigambientglow3")
@@ -2007,6 +2016,7 @@ volume_db = 10.0
 autoplay = true
 max_distance = 500.0
 attenuation = 2.2974
+playback_type = 1
 
 [node name="explosionsSFX" type="AudioStreamPlayer2D" parent="Fire"]
 position = Vector2(288, -8)
@@ -2509,15 +2519,6 @@ scale = Vector2(0.75, 0.75)
 sprite_frames = SubResource("SpriteFrames_l5y4b")
 animation = &"boom"
 frame_progress = 0.535896
-
-[node name="TimeWipeShader" type="TextureRect" parent="Fire"]
-material = SubResource("ShaderMaterial_brqn1")
-offset_left = -136.0
-offset_top = -504.0
-offset_right = 376.0
-offset_bottom = 7.99997
-scale = Vector2(1.73983, 0.978938)
-texture = SubResource("NoiseTexture2D_eyx17")
 
 [node name="Slow Zone" type="Area2D" parent="Fire"]
 

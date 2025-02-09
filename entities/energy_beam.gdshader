@@ -24,8 +24,8 @@ uniform float beam_difference : hint_range(0.0, 1.0) = 0.1; // The thickness dif
 uniform float glow : hint_range(0.0, 3.0) = 0.0; // Use together with WorldEnvironment's Glow feature
 uniform float outline_glow : hint_range(0.0, 3.0) = 0.0;
 
-uniform vec4 color : source_color = vec4(0.8, 0.8, 0.8, 0.9);
-uniform vec4 outline_color : source_color  = vec4(0.8, 0.8, 0.8, 0.8);
+uniform vec4 color : source_color = vec4(0.8, 0.2, 0.8, 0.9);
+uniform vec4 outline_color : source_color  = vec4(0.8, 0.2, 0.8, 0.8);
 
 uniform float progress : hint_range(0.0, 1.0) = 1.0;
 

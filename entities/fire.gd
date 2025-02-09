@@ -19,15 +19,15 @@ func _ready():
 			})
 	await get_tree().create_timer(2).timeout
 	descent_speed = 60
-	await get_tree().create_timer(25).timeout
+	await get_tree().create_timer(35).timeout
 	descent_speed += 20
-	await get_tree().create_timer(25).timeout
+	await get_tree().create_timer(35).timeout
 	descent_speed += 20
-	await get_tree().create_timer(25).timeout
+	await get_tree().create_timer(35).timeout
 	descent_speed += 20
-	await get_tree().create_timer(25).timeout
+	await get_tree().create_timer(35).timeout
 	descent_speed += 20
-	await get_tree().create_timer(25).timeout
+	await get_tree().create_timer(35).timeout
 	descent_speed += 20
 
 func _physics_process(delta):
@@ -55,7 +55,9 @@ func _on_body_entered(body):
 func _on_slow_zone_body_entered(body: Node2D) -> void:
 	if body.is_in_group("player"):
 		Engine.time_scale = 0.5
-
+		descent_speed -= 20
+		
 func _on_slow_zone_body_exited(body: Node2D) -> void:
 	if body.is_in_group("player"):
 		Engine.time_scale = 1.0
+		descent_speed += 20

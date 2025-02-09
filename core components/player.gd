@@ -705,6 +705,7 @@ func _physics_process(delta):
 					#print("Player Velocity: ", velocity)
 					break
 
+	###Transfering platform velocity
 	var input_velocity = Vector2.ZERO
 	if rightHold and movementInputMonitoring.x and !is_dead:
 		input_velocity.x += acceleration * delta
@@ -717,6 +718,7 @@ func _physics_process(delta):
 		velocity.x = platform_velocity.x
 		# Apply player input velocity
 		velocity.x += input_velocity.x * 8
+
 	move_and_slide()
 	
 	if upToCancel and upHold and groundPound:
@@ -853,7 +855,7 @@ func die_spikes():
 		set_process_input(false)
 		anim.play("die")
 		await get_tree().create_timer(0.5).timeout
-		set_physics_process(false)
+		#set_physics_process(false)
 
 func die_crush():
 	dead_light.visible = true
@@ -865,7 +867,7 @@ func die_crush():
 		is_dead = true
 		set_process_input(false)
 		anim.play("die")
-		set_physics_process(false)
+		#set_physics_process(false)
 
 func book_bounce():
 	if !is_dead:

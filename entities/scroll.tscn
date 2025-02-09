@@ -310,7 +310,7 @@ tracks/4/keys = {
 "times": PackedFloat32Array(0, 0.233333, 0.4),
 "transitions": PackedFloat32Array(1, 1, 1),
 "update": 0,
-"values": [Color(0.336878, 0.474487, 0.80081, 1), Color(0.388116, 0.262352, 0.525557, 1), Color(0.409464, 0.489398, 0.681346, 1)]
+"values": [Color(0.336878, 0.474487, 0.80081, 1), Color(0.388116, 0.262352, 0.525557, 1), Color(0.259193, 0.568613, 0.359996, 1)]
 }
 tracks/5/type = "value"
 tracks/5/imported = false
@@ -343,10 +343,10 @@ tracks/7/path = NodePath("cantripLight:offset")
 tracks/7/interp = 1
 tracks/7/loop_wrap = true
 tracks/7/keys = {
-"times": PackedFloat32Array(0, 2.86667, 8.03333),
-"transitions": PackedFloat32Array(0.535887, 0.31864, 1),
+"times": PackedFloat32Array(0, 2.86667, 8.03333, 11.9333),
+"transitions": PackedFloat32Array(0.535887, 0.31864, 1, 1),
 "update": 0,
-"values": [Vector2(0, 0), Vector2(0, 200), Vector2(0, 250)]
+"values": [Vector2(0, 0), Vector2(0, 200), Vector2(0, 250), Vector2(0, 350)]
 }
 tracks/8/type = "value"
 tracks/8/imported = false
@@ -391,10 +391,10 @@ tracks/11/path = NodePath("lesserLight:offset")
 tracks/11/interp = 1
 tracks/11/loop_wrap = true
 tracks/11/keys = {
-"times": PackedFloat32Array(0.0333333, 4.83333),
-"transitions": PackedFloat32Array(1, 1),
+"times": PackedFloat32Array(0.0333333, 4.86667, 11.9333),
+"transitions": PackedFloat32Array(1, 1, 1),
 "update": 0,
-"values": [Vector2(0, 0), Vector2(0, 100)]
+"values": [Vector2(0, 0), Vector2(0, 100), Vector2(0, 200)]
 }
 tracks/12/type = "value"
 tracks/12/imported = false
@@ -624,6 +624,21 @@ animations = [{
 }, {
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_j63pv")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_j63pv")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_j63pv")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1uqfq")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_q0m78")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_s3v06")
 }],
 "loop": true,
 "name": &"default",
@@ -660,23 +675,26 @@ volume_db = -5.0
 pitch_scale = 0.5
 
 [node name="cantripLight" type="PointLight2D" parent="."]
+z_index = 2
 enabled = false
-color = Color(0.915332, 0.782, 0.528946, 1)
+color = Color(0.99, 0.522225, 0.1881, 1)
 energy = 0.25
 texture = ExtResource("3_s6bqc")
 texture_scale = 0.25
 
 [node name="lesserLight" type="PointLight2D" parent="."]
+z_index = 2
 enabled = false
-color = Color(0.913725, 0.780392, 0.529412, 1)
+color = Color(0.97, 0.58685, 0.2037, 1)
 energy = 0.0
 texture = ExtResource("3_s6bqc")
 texture_scale = 0.25
 
 [node name="wisp" type="AnimatedSprite2D" parent="."]
 modulate = Color(0.91, 0.905147, 0.9009, 0.254902)
+self_modulate = Color(1, 0.872, 0.04, 0.113725)
 sprite_frames = SubResource("SpriteFrames_d8ebk")
 autoplay = "default"
-frame_progress = 0.457872
+frame_progress = 0.553727
 
 [connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
