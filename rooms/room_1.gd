@@ -41,12 +41,12 @@ func get_velocity() -> Vector2:
 	return velocity
 
 func _on_spikes_body_entered(body: Node2D) -> void:
-	print("Collision detected with: ", body.name)
+	#print("Collision detected with: ", body.name)
 	
 	if body.is_in_group("player") and body.velocity.y > 0:
-		print("Player velovity at spikes: ", body.velocity.y)
+		#print("Player velovity at spikes: ", body.velocity.y)
 		if body.has_method("die_spikes"):
-			print("Die_spikes method detected!")
+			#print("Die_spikes method detected!")
 			body.die_spikes()
 	elif body.is_in_group("player"):
 		print("Player velocity failed check: ",body.velocity.y)

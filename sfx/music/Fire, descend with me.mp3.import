@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://cbgjyej7ssalc"
+path="res://.godot/imported/Fire, descend with me.mp3-6827c7a697e55838fcd661ff04267215.mp3str"
+
+[deps]
+
+source_file="res://sfx/music/Fire, descend with me.mp3"
+dest_files=["res://.godot/imported/Fire, descend with me.mp3-6827c7a697e55838fcd661ff04267215.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

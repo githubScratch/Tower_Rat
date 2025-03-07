@@ -1,4 +1,4 @@
-[gd_scene load_steps=99 format=3 uid="uid://be4uay3rlk1re"]
+[gd_scene load_steps=102 format=3 uid="uid://be4uay3rlk1re"]
 
 [ext_resource type="Script" path="res://core components/player.gd" id="1_xh1e1"]
 [ext_resource type="Texture2D" uid="uid://bkei0ua4cs3rw" path="res://sprites/rat/rat and bat spritesheet calciumtrice.png" id="2_nf01l"]
@@ -12,6 +12,8 @@
 [ext_resource type="Texture2D" uid="uid://ibg5viq3rphl" path="res://sprites/rat/r1.png" id="10_s6fje"]
 [ext_resource type="AudioStream" uid="uid://ds5leyoyblfiv" path="res://sfx/Stone Land.wav" id="11_4gcyx"]
 [ext_resource type="AudioStream" uid="uid://dy6p3qtdh37iw" path="res://sfx/stoneslide.wav" id="12_ui38j"]
+[ext_resource type="AudioStream" uid="uid://cbgjyej7ssalc" path="res://sfx/music/Fire, descend with me.mp3" id="13_si4b6"]
+[ext_resource type="AudioStream" uid="uid://c7x25l6tvfqbg" path="res://sfx/music/Descending, dear.mp3" id="14_mbelf"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_08tls"]
 size = Vector2(5.99999, 6.00001)
@@ -859,6 +861,11 @@ damping_curve = SubResource("CurveTexture_uck71")
 scale_curve = SubResource("CurveTexture_x6wdc")
 color_ramp = SubResource("GradientTexture1D_mg3wr")
 
+[sub_resource type="AudioStreamPlaylist" id="AudioStreamPlaylist_usmdg"]
+stream_count = 2
+stream_0 = ExtResource("13_si4b6")
+stream_1 = ExtResource("14_mbelf")
+
 [node name="Player" type="CharacterBody2D" node_paths=PackedStringArray("PlayerSprite", "PlayerCollider") groups=["player"]]
 z_index = 1
 collision_layer = 13
@@ -990,3 +997,8 @@ target_position = Vector2(1, 0)
 position = Vector2(-1, -5)
 target_position = Vector2(-1, 0)
 collision_mask = 3
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+process_mode = 3
+stream = SubResource("AudioStreamPlaylist_usmdg")
+autoplay = true

@@ -32,6 +32,7 @@ _data = {
 }
 
 [node name="Node2D" type="Node2D"]
+z_index = -1
 
 [node name="CeilingAnchor" type="RigidBody2D" parent="."]
 collision_layer = 0

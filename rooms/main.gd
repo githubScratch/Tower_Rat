@@ -44,7 +44,7 @@ func remove_old_floors(current_score: int) -> void:
 		var level_index = int(child.position.y / 320)  # Derive level index from position
 		if level_index < threshold:
 			# Remove the floor if it's below the threshold
-			print(level_index, " removed")
+			#print(level_index, " removed")
 			$level_container.remove_child(child)
 			child.queue_free()
 
@@ -76,7 +76,7 @@ func generate_new_floors(current_score: int) -> void:
 			scene = level_scenes[randi() % level_scenes.size()]  # Use a random scene
 		var instance = scene.instantiate()
 		instance.position = Vector2(32, highest_level_generated * 320)
-		print("Generated level: ", highest_level_generated)
+		#print("Generated level: ", highest_level_generated)
 		$level_container.add_child(instance)
 
 func generate_new_walls(current_score: int) -> void:

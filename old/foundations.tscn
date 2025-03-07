@@ -2683,7 +2683,7 @@ animations = [{
 offsets = PackedFloat32Array(0, 0.172131, 0.622951, 1)
 colors = PackedColorArray(0.50556, 0.287, 0.613123, 1, 0.941278, 0.36701, 0.632413, 0.874446, 0.323688, 0.489588, 0.890275, 0.832535, 0.981333, 0.93, 1, 0.756863)
 
-[sub_resource type="GradientTexture1D" id="GradientTexture1D_2al6g"]
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_0y7fj"]
 gradient = SubResource("Gradient_fw84e")
 
 [sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_gvvia"]
@@ -2700,7 +2700,7 @@ gravity = Vector3(0, -200, 0)
 scale_min = 0.2
 scale_max = 3.0
 color = Color(0.5985, 0.2604, 0.84, 1)
-color_ramp = SubResource("GradientTexture1D_2al6g")
+color_ramp = SubResource("GradientTexture1D_0y7fj")
 hue_variation_min = -0.01
 hue_variation_max = 0.03
 collision_mode = 1

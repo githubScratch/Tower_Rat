@@ -209,6 +209,9 @@ var platform_velocity: Vector2 = Vector2.ZERO
 var motion_previous = Vector2()
 var hit_the_ground = false
 
+var inherited_platform_velocity: Vector2 = Vector2.ZERO
+var velocity_tween: Tween
+var is_tweening_velocity: bool = false
 
 func _ready():
 	dead_light.visible = false
@@ -289,6 +292,26 @@ func _updateData():
 		eightWayDash = true
 	
 	
+func tween_platform_velocity(start_velocity: Vector2, duration: float = 1.0) -> void:
+	print("Tween function called with velocity: ", start_velocity)
+	
+	if velocity_tween and velocity_tween.is_valid():
+		velocity_tween.kill()
+		print("Killed existing tween")
+	
+	velocity_tween = create_tween()
+	velocity_tween.set_trans(Tween.TRANS_QUAD)
+	velocity_tween.set_ease(Tween.EASE_OUT)
+	
+	is_tweening_velocity = true
+	inherited_platform_velocity = start_velocity
+	print("Set initial inherited velocity to: ", inherited_platform_velocity)
+	
+	# Tween the inherited velocity to zero
+	velocity_tween.tween_property(self, "inherited_platform_velocity", Vector2.ZERO, duration)
+	velocity_tween.finished.connect(func(): 
+		is_tweening_velocity = false
+		print("Tween finished"))
 
 func _process(_delta):
 	platform_velocity = Vector2.ZERO
@@ -687,38 +710,65 @@ func _physics_process(delta):
 		groundPounding = true
 		gravityActive = false
 		velocity.y = 0
-		anim.play("groundpound")
+		anim.play("falling")
 		await get_tree().create_timer(groundPoundPause).timeout
 		_groundPound()
 	if is_on_floor() and groundPounding:
 		_endGroundPound()
-		
+	
+	
+	
+	# REPLACE THE PLATFORM VELOCITY SECTION IN _physics_process
+	# Handle platform velocity
+	var new_platform_velocity = Vector2.ZERO
+	var was_on_platform = is_on_floor() and platform_velocity != Vector2.ZERO
+	
+	# Check for platform collision and get velocity
 	for i in range(get_slide_collision_count()):
 		var collision = get_slide_collision(i)
 		if collision:
 			var collider = collision.get_collider()
 			var platform = collider.get_parent()
-			if platform and platform is Node2D:
-				if "velocity" in platform:
-					platform_velocity = platform.velocity
-					#print("Platform Velocity: ", platform_velocity)  # Debug print
-					#print("Player Velocity: ", velocity)
-					break
-
-	###Transfering platform velocity
+			if platform and platform is Node2D and "velocity" in platform:
+				new_platform_velocity = platform.velocity
+				new_platform_velocity.x = clamp(new_platform_velocity.x, -max_platform_velocity, max_platform_velocity)
+				break
+	
+	# Handle getting on/off platform
+	if is_on_floor():
+		if new_platform_velocity != Vector2.ZERO:
+			platform_velocity = new_platform_velocity
+			is_tweening_velocity = false
+			inherited_platform_velocity = Vector2.ZERO
+	else:
+		# Just left platform
+		print("Debug - was_on_platform:", was_on_platform, 
+	  " !is_tweening_velocity:", !is_tweening_velocity,
+	  " platform_velocity:", platform_velocity)
+		if was_on_platform and !is_tweening_velocity and platform_velocity != Vector2.ZERO:
+			print("Starting tween with platform velocity: ", platform_velocity)
+			# Store the velocity before setting it to zero
+			var velocity_to_tween = platform_velocity
+			platform_velocity = Vector2.ZERO
+			tween_platform_velocity(velocity_to_tween)
+		elif platform_velocity != Vector2.ZERO:
+			platform_velocity = Vector2.ZERO
+	
+	# Calculate input velocity
 	var input_velocity = Vector2.ZERO
 	if rightHold and movementInputMonitoring.x and !is_dead:
 		input_velocity.x += acceleration * delta
 	elif leftHold and movementInputMonitoring.y and !is_dead:
 		input_velocity.x -= acceleration * delta
-
-	platform_velocity.x = clamp(platform_velocity.x, -max_platform_velocity, max_platform_velocity)
-
-	if is_on_floor() and platform_velocity != Vector2.ZERO:
-		velocity.x = platform_velocity.x
-		# Apply player input velocity
-		velocity.x += input_velocity.x * 8
-
+	
+	# Apply velocities
+	if is_on_floor():
+		velocity.x = platform_velocity.x + (input_velocity.x * 8)
+	else:
+		var combined_velocity = inherited_platform_velocity.x + (input_velocity.x * 8)
+		velocity.x = combined_velocity
+		print("Current inherited velocity: ", inherited_platform_velocity.x, " Combined velocity: ", combined_velocity)
+	
 	move_and_slide()
 	
 	if upToCancel and upHold and groundPound:
@@ -811,7 +861,7 @@ func _rollingTime(time):
 
 func _groundPound():
 	appliedTerminalVelocity = terminalVelocity * 10
-	anim.play("groundpound")
+	anim.play("falling")
 	velocity.y = jumpMagnitude * 2
 	
 func _endGroundPound():
@@ -855,6 +905,7 @@ func die_spikes():
 		set_process_input(false)
 		anim.play("die")
 		await get_tree().create_timer(0.5).timeout
+		gravityScale = 0
 		#set_physics_process(false)
 
 func die_crush():
@@ -865,6 +916,7 @@ func die_crush():
 		animation_player.play("dead_zoom")
 		velocity.x = 0
 		is_dead = true
+		gravityScale = 0
 		set_process_input(false)
 		anim.play("die")
 		#set_physics_process(false)
@@ -872,3 +924,4 @@ func die_crush():
 func book_bounce():
 	if !is_dead:
 		velocity.y = -200
+		
